@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Player1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/PlayArea3.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 35, 35 )
+
+[node name="Game" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 494, 286.5 )
+build_mode = 1
+polygon = PoolVector2Array( -384, -115.5, -384, 396.5, 426, 396.5, 426, -115.5 )
+
+[node name="GameArea" type="Sprite" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2( -492, -287.5 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 90, 90 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 276, 112 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+position = Vector2( 276, 112 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 3 )
