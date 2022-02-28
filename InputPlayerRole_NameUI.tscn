@@ -1,0 +1,203 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://InputPlayerRole_NameUI.gd" type="Script" id=1]
+
+[node name="InputPlayerRole_NameUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -114, 62 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chooseTeams" type="TextureRect" parent="."]
+margin_left = 80.0
+margin_top = 120.0
+margin_right = 944.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nameRoleMenu" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 80.0
+margin_top = 120.0
+margin_right = -80.0
+margin_bottom = -120.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="verticalCenter" type="HBoxContainer" parent="nameRoleMenu"]
+margin_right = 864.0
+margin_bottom = 360.0
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sideMargins" type="MarginContainer" parent="nameRoleMenu/verticalCenter"]
+margin_left = 59.0
+margin_right = 805.0
+margin_bottom = 360.0
+custom_constants/margin_right = 250
+custom_constants/margin_left = 250
+
+[node name="menuButtons" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins"]
+margin_left = 250.0
+margin_right = 496.0
+margin_bottom = 360.0
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="roles" type="HBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons"]
+margin_top = 111.0
+margin_right = 246.0
+margin_bottom = 161.0
+custom_constants/separation = 4
+
+[node name="players1to3" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles"]
+margin_right = 121.0
+margin_bottom = 50.0
+custom_constants/separation = 4
+
+[node name="playerLabel1" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to3"]
+margin_right = 121.0
+margin_bottom = 14.0
+text = "Player 1 RUNNER"
+
+[node name="playerLabel2" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to3"]
+margin_top = 18.0
+margin_right = 121.0
+margin_bottom = 32.0
+text = "Player 2 DEFENDER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playerLabel3" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to3"]
+margin_top = 36.0
+margin_right = 121.0
+margin_bottom = 50.0
+text = "Player 3 DEFENDER"
+
+[node name="players4to6" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles"]
+margin_left = 125.0
+margin_right = 246.0
+margin_bottom = 50.0
+custom_constants/separation = 4
+
+[node name="playerLabel4" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players4to6"]
+margin_right = 121.0
+margin_bottom = 14.0
+text = "Player 4 DEFENDER"
+
+[node name="playerLabel5" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players4to6"]
+margin_top = 18.0
+margin_right = 121.0
+margin_bottom = 32.0
+text = "Player 5 RUNNER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playerLabel6" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players4to6"]
+margin_top = 36.0
+margin_right = 121.0
+margin_bottom = 50.0
+text = "Player 1 DEFENDER"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons"]
+margin_top = 171.0
+margin_right = 246.0
+margin_bottom = 219.0
+alignment = 1
+
+[node name="inputPrompts" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer"]
+margin_right = 121.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 4
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="roleSelectPrompt" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputPrompts"]
+margin_top = 8.0
+margin_right = 121.0
+margin_bottom = 22.0
+text = "Current Role"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playerNamePrompt" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputPrompts"]
+margin_top = 26.0
+margin_right = 121.0
+margin_bottom = 40.0
+text = "Choose Name"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="inputControls" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer"]
+margin_left = 125.0
+margin_right = 246.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+custom_constants/separation = 4
+
+[node name="playerNameInput" type="LineEdit" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputControls"]
+margin_right = 121.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+text = "Merol Muspi"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="roleSelectInput" type="Button" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputControls"]
+margin_top = 28.0
+margin_right = 121.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+text = "RUNNER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="startGameButton" type="Button" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons"]
+margin_top = 229.0
+margin_right = 246.0
+margin_bottom = 249.0
+size_flags_horizontal = 3
+text = "Start Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="Button" parent="."]
+margin_left = 30.0
+margin_right = 50.0
+margin_bottom = 20.0
+text = "back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="text_entered" from="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputControls/playerNameInput" to="." method="_on_playerNameInput_text_entered"]
+[connection signal="pressed" from="nameRoleMenu/verticalCenter/sideMargins/menuButtons/startGameButton" to="." method="_on_startGameButton_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

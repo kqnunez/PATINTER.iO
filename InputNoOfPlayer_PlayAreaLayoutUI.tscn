@@ -1,0 +1,153 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://InputNoOfPlayer_PlayAreaLayoutUI.gd" type="Script" id=1]
+
+[node name="InputNoOfPlayer_PlayAreaLayoutUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="Button" parent="."]
+margin_left = 30.0
+margin_right = 50.0
+margin_bottom = 20.0
+text = "back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gameSettingMenu" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 80.0
+margin_top = 120.0
+margin_right = -80.0
+margin_bottom = -120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="TextureRect" parent="gameSettingMenu"]
+margin_right = 864.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="verticalCenter" type="HBoxContainer" parent="gameSettingMenu"]
+margin_top = 4.0
+margin_right = 864.0
+margin_bottom = 360.0
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sideMargins" type="MarginContainer" parent="gameSettingMenu/verticalCenter"]
+margin_left = 104.0
+margin_right = 760.0
+margin_bottom = 356.0
+custom_constants/margin_right = 250
+custom_constants/margin_left = 250
+
+[node name="menuButtons" type="VBoxContainer" parent="gameSettingMenu/verticalCenter/sideMargins"]
+margin_left = 250.0
+margin_right = 406.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 30
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="noOfPlayers" type="VBoxContainer" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons"]
+margin_top = 98.0
+margin_right = 156.0
+margin_bottom = 140.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="noOfPlayersLabel" type="Label" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/noOfPlayers"]
+margin_right = 156.0
+margin_bottom = 14.0
+text = "Input Number of Players"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="noOfPlayersInput" type="LineEdit" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/noOfPlayers"]
+margin_top = 18.0
+margin_right = 156.0
+margin_bottom = 42.0
+text = "6"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playAre" type="VBoxContainer" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons"]
+margin_top = 170.0
+margin_right = 156.0
+margin_bottom = 208.0
+
+[node name="playAreaPrompt" type="Label" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre"]
+margin_right = 156.0
+margin_bottom = 14.0
+text = "Select Area Layout"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="setPlayArea" type="HBoxContainer" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre"]
+margin_top = 18.0
+margin_right = 156.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( -354, -19 )
+alignment = 1
+
+[node name="playAreaPrev" type="Button" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea"]
+margin_left = 30.0
+margin_right = 50.0
+margin_bottom = 20.0
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playAreaLabel" type="Label" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 101.0
+margin_bottom = 17.0
+text = "Normal"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playAreaNext" type="Button" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea"]
+margin_left = 105.0
+margin_right = 125.0
+margin_bottom = 20.0
+text = ">"
+
+[node name="roleSelectButton" type="Button" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons"]
+margin_top = 238.0
+margin_right = 156.0
+margin_bottom = 258.0
+size_flags_horizontal = 3
+text = "Choose Teams"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="gameSettingMenu/verticalCenter/sideMargins/menuButtons/roleSelectButton" to="." method="_on_roleSelectButton_pressed"]
