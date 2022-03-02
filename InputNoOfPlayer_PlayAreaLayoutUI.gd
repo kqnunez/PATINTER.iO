@@ -19,8 +19,8 @@ func _ready():
 
 func _on_roleSelectButton_pressed():
 	playerNo = int($gameSettingMenu/verticalCenter/sideMargins/menuButtons/noOfPlayers/noOfPlayersInput.get_text())
-	get_tree().change_scene("res://InputPlayerRole_NameUI.tscn")
-	SceneManager.passPlayerNoLayout("res://InputNoOfPlayer_PlayAreaLayoutUI.tscn", "res://InputPlayerRole_NameUI.tscn")
+	print("At input: ", playerNo)
+	SceneManager.passPlayerNoLayout(self, "res://InputPlayerRole_NameUI.tscn")
 	
 func _on_back_pressed():
 	get_tree().change_scene("res://Start_ExitGameUI.tscn")
