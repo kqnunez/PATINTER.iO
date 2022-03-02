@@ -10,9 +10,16 @@ extends Node
 func _ready():
 	pass # Replace with function body.
 
-func passPlayerNoLayout(oldScene, newScene):
+#Based on: https://docs.godotengine.org/en/3.0/getting_started/step_by_step/singletons_autoload.html#custom-scene-switcher
+#https://godotengine.org/qa/24773/how-to-load-and-change-scenes
+func passPlayerNoLayout(oldScene, newScenePath):
+	var newScene = load(newScenePath).instance()
 	newScene.playerNo = int(oldScene.playerNo)
 	newScene.playAreaLayout = int(oldScene.playAreaLayout)
+	
+	get_tree().get_root().remove_child(oldScene)
+	get_tree().get_root().add_child(newScene)
+	get_tree().set_current_scene(newScene)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
