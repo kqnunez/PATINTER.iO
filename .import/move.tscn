@@ -47,7 +47,7 @@ build_mode = 1
 polygon = PoolVector2Array( -384, -115.5, -384, 396.5, 426, 396.5, 426, -115.5 )
 
 [node name="GameArea" type="Sprite" parent="StaticBody2D/CollisionShape2D"]
-position = Vector2( -498, -276.5 )
+position = Vector2( -494, -285.5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 centered = false
