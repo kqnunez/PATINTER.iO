@@ -33,8 +33,8 @@ __meta__ = {
 }
 
 [node name="verticalCenter" type="HBoxContainer" parent="nameRoleMenu"]
-margin_right = 864.0
-margin_bottom = 360.0
+margin_right = 1372.0
+margin_bottom = 622.0
 size_flags_vertical = 3
 alignment = 1
 __meta__ = {
@@ -42,16 +42,16 @@ __meta__ = {
 }
 
 [node name="sideMargins" type="MarginContainer" parent="nameRoleMenu/verticalCenter"]
-margin_left = 59.0
-margin_right = 805.0
-margin_bottom = 360.0
+margin_left = 313.0
+margin_right = 1059.0
+margin_bottom = 622.0
 custom_constants/margin_right = 250
 custom_constants/margin_left = 250
 
 [node name="menuButtons" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins"]
 margin_left = 250.0
 margin_right = 496.0
-margin_bottom = 360.0
+margin_bottom = 622.0
 custom_constants/separation = 10
 alignment = 1
 __meta__ = {
@@ -59,9 +59,9 @@ __meta__ = {
 }
 
 [node name="roles" type="HBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 102.0
+margin_top = 233.0
 margin_right = 246.0
-margin_bottom = 170.0
+margin_bottom = 301.0
 custom_constants/separation = 4
 
 [node name="players1to4" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles"]
@@ -136,9 +136,9 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 8 DEFENDER"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 180.0
+margin_top = 311.0
 margin_right = 246.0
-margin_bottom = 228.0
+margin_bottom = 359.0
 alignment = 1
 
 [node name="inputPrompts" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer"]
@@ -202,9 +202,9 @@ __meta__ = {
 }
 
 [node name="startGameButton" type="Button" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 238.0
+margin_top = 369.0
 margin_right = 246.0
-margin_bottom = 258.0
+margin_bottom = 389.0
 size_flags_horizontal = 3
 text = "Start Game"
 __meta__ = {
