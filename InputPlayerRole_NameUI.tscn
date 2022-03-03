@@ -72,12 +72,14 @@ custom_constants/separation = 4
 [node name="playerLabel1" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to4"]
 margin_right = 121.0
 margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 1 RUNNER"
 
 [node name="playerLabel2" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to4"]
 margin_top = 18.0
 margin_right = 121.0
 margin_bottom = 32.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 2 DEFENDER"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -87,12 +89,14 @@ __meta__ = {
 margin_top = 36.0
 margin_right = 121.0
 margin_bottom = 50.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 3 DEFENDER"
 
 [node name="playerLabel4" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to4"]
 margin_top = 54.0
 margin_right = 121.0
 margin_bottom = 68.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 4 DEFENDER"
 
 [node name="players5to8" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles"]
@@ -104,6 +108,7 @@ custom_constants/separation = 4
 [node name="playerLabel5" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players5to8"]
 margin_right = 121.0
 margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 5 RUNNER"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -113,18 +118,21 @@ __meta__ = {
 margin_top = 18.0
 margin_right = 121.0
 margin_bottom = 32.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 6 DEFENDER"
 
 [node name="playerLabel7" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players5to8"]
 margin_top = 36.0
 margin_right = 121.0
 margin_bottom = 50.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 7 DEFENDER"
 
 [node name="playerLabel8" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players5to8"]
 margin_top = 54.0
 margin_right = 121.0
 margin_bottom = 68.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 8 DEFENDER"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons"]
@@ -148,6 +156,7 @@ __meta__ = {
 margin_top = 8.0
 margin_right = 121.0
 margin_bottom = 22.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Choose Name"
 align = 2
 __meta__ = {
@@ -158,6 +167,7 @@ __meta__ = {
 margin_top = 26.0
 margin_right = 121.0
 margin_bottom = 40.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Current Role"
 align = 2
 __meta__ = {

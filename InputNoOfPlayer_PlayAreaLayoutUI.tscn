@@ -76,6 +76,7 @@ __meta__ = {
 [node name="noOfPlayersLabel" type="Label" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/noOfPlayers"]
 margin_right = 198.0
 margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Input Number of Players"
 align = 1
 __meta__ = {
@@ -100,6 +101,7 @@ margin_bottom = 248.0
 [node name="playAreaPrompt" type="Label" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre"]
 margin_right = 198.0
 margin_bottom = 14.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Select Area Layout"
 align = 1
 __meta__ = {
