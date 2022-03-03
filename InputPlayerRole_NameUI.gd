@@ -12,6 +12,11 @@ var playerName := "Merol Muspi"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Received: ", playerNo) # Replace with function body.
+	
+	#Hide extra labels
+	for i in range(1, 9):
+		if i > playerNo:
+			get_tree().get_root().find_node("playerLabel" + String(i), true, false).set_visible(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
