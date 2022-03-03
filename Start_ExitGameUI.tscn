@@ -90,3 +90,4 @@ margin_bottom = 168.0
 text = "Exit"
 
 [connection signal="pressed" from="mainMenu/verticalCenter/sideMargins/menuButtons/startButton" to="." method="_on_startButton_pressed"]
+[connection signal="pressed" from="mainMenu/verticalCenter/sideMargins/menuButtons/exitButton" to="." method="_on_exitButton_pressed"]
