@@ -18,3 +18,6 @@ func _ready():
 
 func _on_startButton_pressed():
 	get_tree().change_scene("res://InputNoOfPlayer_PlayAreaLayoutUI.tscn")
+
+func _on_exitButton_pressed():
+	get_tree().quit()
