@@ -11,8 +11,6 @@ var playerName := "Merol Muspi"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("Received: ", playerNo) # Replace with function body.
-	
 	#Hide extra labels
 	for i in range(1, 9):
 		if i > playerNo:
@@ -27,12 +25,16 @@ func _on_back_pressed():
 
 func _on_startGameButton_pressed():
 	playerName = $nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputControls/playerNameInput.get_text()
-
+	SceneManager.passPlayerNoLayout(self, "res://move.tscn")
 
 func _on_roleSelectInput_pressed():
+	playerName = $nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputControls/playerNameInput.get_text()
+	
 	if playerRole == 0:
 		playerRole = 1
 		$nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputControls/roleSelectInput.set_text("DEFENDER")
+		$nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to4/playerLabel1.set_text(playerName + " DEFENDER")
 	else:
 		playerRole = 0
 		$nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputControls/roleSelectInput.set_text("RUNNER")
+		$nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to4/playerLabel1.set_text(playerName + " RUNNER")
