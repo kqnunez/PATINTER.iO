@@ -211,5 +211,6 @@ __meta__ = {
 }
 
 [connection signal="text_entered" from="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputControls/playerNameInput" to="." method="_on_playerNameInput_text_entered"]
+[connection signal="pressed" from="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputControls/roleSelectInput" to="." method="_on_roleSelectInput_pressed"]
 [connection signal="pressed" from="nameRoleMenu/verticalCenter/sideMargins/menuButtons/startGameButton" to="." method="_on_startGameButton_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]

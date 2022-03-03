@@ -47,15 +47,15 @@ __meta__ = {
 }
 
 [node name="sideMargins" type="MarginContainer" parent="gameSettingMenu/verticalCenter"]
-margin_left = 104.0
-margin_right = 760.0
+margin_left = 83.0
+margin_right = 781.0
 margin_bottom = 356.0
 custom_constants/margin_right = 250
 custom_constants/margin_left = 250
 
 [node name="menuButtons" type="VBoxContainer" parent="gameSettingMenu/verticalCenter/sideMargins"]
 margin_left = 250.0
-margin_right = 406.0
+margin_right = 448.0
 margin_bottom = 356.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -66,15 +66,15 @@ __meta__ = {
 }
 
 [node name="noOfPlayers" type="VBoxContainer" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 98.0
-margin_right = 156.0
-margin_bottom = 140.0
+margin_top = 58.0
+margin_right = 198.0
+margin_bottom = 100.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="noOfPlayersLabel" type="Label" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/noOfPlayers"]
-margin_right = 156.0
+margin_right = 198.0
 margin_bottom = 14.0
 text = "Input Number of Players"
 align = 1
@@ -84,7 +84,7 @@ __meta__ = {
 
 [node name="noOfPlayersInput" type="LineEdit" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/noOfPlayers"]
 margin_top = 18.0
-margin_right = 156.0
+margin_right = 198.0
 margin_bottom = 42.0
 text = "6"
 align = 1
@@ -93,12 +93,12 @@ __meta__ = {
 }
 
 [node name="playAre" type="VBoxContainer" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 170.0
-margin_right = 156.0
-margin_bottom = 208.0
+margin_top = 130.0
+margin_right = 198.0
+margin_bottom = 248.0
 
 [node name="playAreaPrompt" type="Label" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre"]
-margin_right = 156.0
+margin_right = 198.0
 margin_bottom = 14.0
 text = "Select Area Layout"
 align = 1
@@ -108,8 +108,8 @@ __meta__ = {
 
 [node name="setPlayArea" type="HBoxContainer" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre"]
 margin_top = 18.0
-margin_right = 156.0
-margin_bottom = 38.0
+margin_right = 198.0
+margin_bottom = 118.0
 rect_pivot_offset = Vector2( -354, -19 )
 alignment = 1
 
@@ -124,24 +124,28 @@ __meta__ = {
 
 [node name="playAreaPreview" type="TextureRect" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea"]
 margin_left = 24.0
-margin_right = 24.0
-size_flags_horizontal = 2
-size_flags_vertical = 2
+margin_right = 174.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 150, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="playAreaNext" type="Button" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea"]
-margin_left = 136.0
-margin_right = 156.0
+margin_left = 178.0
+margin_right = 198.0
 margin_bottom = 20.0
 size_flags_vertical = 0
 text = ">"
 
 [node name="roleSelectButton" type="Button" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 238.0
-margin_right = 156.0
-margin_bottom = 258.0
+margin_top = 278.0
+margin_right = 198.0
+margin_bottom = 298.0
 size_flags_horizontal = 3
 text = "Choose Teams"
 __meta__ = {

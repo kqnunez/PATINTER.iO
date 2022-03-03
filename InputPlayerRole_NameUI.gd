@@ -27,3 +27,12 @@ func _on_back_pressed():
 
 func _on_startGameButton_pressed():
 	playerName = $nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputControls/playerNameInput.get_text()
+
+
+func _on_roleSelectInput_pressed():
+	if playerRole == 0:
+		playerRole = 1
+		$nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputControls/roleSelectInput.set_text("DEFENDER")
+	else:
+		playerRole = 0
+		$nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputControls/roleSelectInput.set_text("RUNNER")

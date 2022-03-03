@@ -10,7 +10,7 @@ var playAreaCurrent = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea/playAreaPreview.set_texture(load("res://Assets/playArea1.png"))
+	$gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea/playAreaPreview.set_texture(load("res://Assets/playArea01.png"))
 	pass # Replace with function body.
 
 
@@ -30,9 +30,9 @@ func _on_back_pressed():
 func _on_playAreaNext_pressed():
 	if playAreaCurrent < 4:
 		playAreaCurrent += 1
-		$gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea/playAreaPreview.set_texture(load("res://Assets/playArea"+str(playAreaCurrent)+".png"))
+		$gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea/playAreaPreview.set_texture(load("res://Assets/playArea0"+str(playAreaCurrent)+".png"))
 
 func _on_playAreaPrev_pressed():
 	if playAreaCurrent > 1:
 		playAreaCurrent -= 1
-		$gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea/playAreaPreview.set_texture(load("res://Assets/playArea"+str(playAreaCurrent)+".png"))
+		$gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea/playAreaPreview.set_texture(load("res://Assets/playArea0"+str(playAreaCurrent)+".png"))
