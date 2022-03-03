@@ -59,22 +59,22 @@ __meta__ = {
 }
 
 [node name="roles" type="HBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 111.0
+margin_top = 102.0
 margin_right = 246.0
-margin_bottom = 161.0
+margin_bottom = 170.0
 custom_constants/separation = 4
 
-[node name="players1to3" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles"]
+[node name="players1to4" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles"]
 margin_right = 121.0
-margin_bottom = 50.0
+margin_bottom = 68.0
 custom_constants/separation = 4
 
-[node name="playerLabel1" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to3"]
+[node name="playerLabel1" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to4"]
 margin_right = 121.0
 margin_bottom = 14.0
 text = "Player 1 RUNNER"
 
-[node name="playerLabel2" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to3"]
+[node name="playerLabel2" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to4"]
 margin_top = 18.0
 margin_right = 121.0
 margin_bottom = 32.0
@@ -83,42 +83,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="playerLabel3" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to3"]
+[node name="playerLabel3" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to4"]
 margin_top = 36.0
 margin_right = 121.0
 margin_bottom = 50.0
 text = "Player 3 DEFENDER"
 
-[node name="players4to6" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles"]
-margin_left = 125.0
-margin_right = 246.0
-margin_bottom = 50.0
-custom_constants/separation = 4
-
-[node name="playerLabel4" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players4to6"]
+[node name="playerLabel4" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players1to4"]
+margin_top = 54.0
 margin_right = 121.0
-margin_bottom = 14.0
+margin_bottom = 68.0
 text = "Player 4 DEFENDER"
 
-[node name="playerLabel5" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players4to6"]
-margin_top = 18.0
+[node name="players5to8" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles"]
+margin_left = 125.0
+margin_right = 246.0
+margin_bottom = 68.0
+custom_constants/separation = 4
+
+[node name="playerLabel5" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players5to8"]
 margin_right = 121.0
-margin_bottom = 32.0
+margin_bottom = 14.0
 text = "Player 5 RUNNER"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="playerLabel6" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players4to6"]
+[node name="playerLabel6" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players5to8"]
+margin_top = 18.0
+margin_right = 121.0
+margin_bottom = 32.0
+text = "Player 6 DEFENDER"
+
+[node name="playerLabel7" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players5to8"]
 margin_top = 36.0
 margin_right = 121.0
 margin_bottom = 50.0
-text = "Player 1 DEFENDER"
+text = "Player 7 DEFENDER"
+
+[node name="playerLabel8" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/roles/players5to8"]
+margin_top = 54.0
+margin_right = 121.0
+margin_bottom = 68.0
+text = "Player 8 DEFENDER"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 171.0
+margin_top = 180.0
 margin_right = 246.0
-margin_bottom = 219.0
+margin_bottom = 228.0
 alignment = 1
 
 [node name="inputPrompts" type="VBoxContainer" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer"]
@@ -132,21 +144,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="roleSelectPrompt" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputPrompts"]
+[node name="playerNamePrompt" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputPrompts"]
 margin_top = 8.0
 margin_right = 121.0
 margin_bottom = 22.0
-text = "Current Role"
+text = "Choose Name"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="playerNamePrompt" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputPrompts"]
+[node name="roleSelectPrompt" type="Label" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons/HBoxContainer/inputPrompts"]
 margin_top = 26.0
 margin_right = 121.0
 margin_bottom = 40.0
-text = "Choose Name"
+text = "Current Role"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -180,9 +192,9 @@ __meta__ = {
 }
 
 [node name="startGameButton" type="Button" parent="nameRoleMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 229.0
+margin_top = 238.0
 margin_right = 246.0
-margin_bottom = 249.0
+margin_bottom = 258.0
 size_flags_horizontal = 3
 text = "Start Game"
 __meta__ = {
