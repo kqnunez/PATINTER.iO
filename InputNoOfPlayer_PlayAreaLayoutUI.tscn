@@ -154,6 +154,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="invalidPlayerNo" type="AcceptDialog" parent="."]
+margin_left = 622.0
+margin_top = 402.0
+margin_right = 909.0
+margin_bottom = 460.0
+window_title = "Invalid Number of Players"
+dialog_text = "Please choose a number between 2 and 8."
+
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea/playAreaPrev" to="." method="_on_playAreaPrev_pressed"]
 [connection signal="pressed" from="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea/playAreaNext" to="." method="_on_playAreaNext_pressed"]

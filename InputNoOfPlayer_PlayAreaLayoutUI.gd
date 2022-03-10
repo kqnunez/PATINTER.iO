@@ -21,6 +21,9 @@ func _ready():
 
 func _on_roleSelectButton_pressed():
 	playerNo = int($gameSettingMenu/verticalCenter/sideMargins/menuButtons/noOfPlayers/noOfPlayersInput.get_text())
+	if playerNo < 2 or playerNo > 8:
+		$invalidPlayerNo.popup_centered()
+		return
 	playAreaLayout = playAreaCurrent
 	SceneManager.passPlayerNoLayout(self, "res://InputPlayerRole_NameUI.tscn")
 	
