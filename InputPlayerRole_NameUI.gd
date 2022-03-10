@@ -15,14 +15,14 @@ func _ready():
 	for i in range(1, 9):
 		if i > playerNo:
 			get_tree().get_root().find_node("playerLabel" + String(i), true, false).set_visible(false)
-
+			
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 func _on_back_pressed():
 	get_tree().change_scene("res://InputNoOfPlayer_PlayAreaLayoutUI.tscn")
-
+	
 func _on_startGameButton_pressed():
 	playerName = $centermenu/menuButtons/nameRole/inputControls/playerNameInput.get_text()
 	if playerName == "":
@@ -51,3 +51,4 @@ func _on_roleSelectInput_pressed():
 		playerRole = 0
 		$centermenu/menuButtons/nameRole/inputControls/roleSelectInput.set_text("RUNNER")
 		$centermenu/menuButtons/roles/players1to4/playerLabel1.set_text(playerName + " RUNNER")
+

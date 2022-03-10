@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Start_ExitGameUI.gd" type="Script" id=1]
 [ext_resource path="res://Assets/logo.png" type="Texture" id=2]
+[ext_resource path="res://button.tres" type="Theme" id=3]
 
 [node name="Start_ExitGameUI" type="Control"]
 anchor_right = 1.0
@@ -44,32 +45,42 @@ __meta__ = {
 }
 
 [node name="menuButtons" type="VBoxContainer" parent="centerMenu"]
-margin_left = 734.0
-margin_top = 310.0
-margin_right = 797.0
-margin_bottom = 378.0
+margin_left = 666.0
+margin_top = 259.0
+margin_right = 866.0
+margin_bottom = 429.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 10
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="startButton" type="Button" parent="centerMenu/menuButtons"]
-margin_right = 63.0
-margin_bottom = 20.0
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_vertical = 3
+theme = ExtResource( 3 )
 text = "Start"
 
 [node name="optionsButton" type="Button" parent="centerMenu/menuButtons"]
-margin_top = 24.0
-margin_right = 63.0
-margin_bottom = 44.0
+margin_top = 60.0
+margin_right = 200.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_vertical = 3
+theme = ExtResource( 3 )
 text = "Options"
 
 [node name="exitButton" type="Button" parent="centerMenu/menuButtons"]
-margin_top = 48.0
-margin_right = 63.0
-margin_bottom = 68.0
+margin_top = 120.0
+margin_right = 200.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_vertical = 3
+theme = ExtResource( 3 )
 text = "Exit"
 
 [connection signal="pressed" from="centerMenu/menuButtons/startButton" to="." method="_on_startButton_pressed"]

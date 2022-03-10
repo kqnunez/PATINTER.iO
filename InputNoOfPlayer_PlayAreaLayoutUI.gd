@@ -11,6 +11,7 @@ var playAreaCurrent = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$menuCenter/menuButtons/playAre/setPlayArea/playAreaPreview.set_texture(load("res://Assets/playArea01.png"))
+	$menuCenter/menuButtons/playAre/setPlayArea/leftSpace/playAreaPrev.hide()
 	pass # Replace with function body.
 
 
@@ -28,15 +29,20 @@ func _on_roleSelectButton_pressed():
 	SceneManager.passPlayerNoLayout(self, "res://InputPlayerRole_NameUI.tscn")
 	
 func _on_back_pressed():
-	get_tree().change_scene("res://Start_ExitGameUI.tscn")
-
+	get_tree().change_scene("res://InputNoOfPlayer_PlayAreaLayoutUI.tscn")
 
 func _on_playAreaNext_pressed():
-	if playAreaCurrent < 4:
-		playAreaCurrent += 1
-		$menuCenter/menuButtons/playAre/setPlayArea/playAreaPreview.set_texture(load("res://Assets/playArea0"+str(playAreaCurrent)+".png"))
+	if playAreaCurrent == 3:
+		$menuCenter/menuButtons/playAre/setPlayArea/rightSpace/playAreaNext.hide()
+	playAreaCurrent += 1
+	$menuCenter/menuButtons/playAre/setPlayArea/playAreaPreview.set_texture(load("res://Assets/playArea0"+str(playAreaCurrent)+".png"))
+	if playAreaCurrent == 2:
+		$menuCenter/menuButtons/playAre/setPlayArea/leftSpace/playAreaPrev.show()
 
 func _on_playAreaPrev_pressed():
-	if playAreaCurrent > 1:
-		playAreaCurrent -= 1
-		$menuCenter/menuButtons/playAre/setPlayArea/playAreaPreview.set_texture(load("res://Assets/playArea0"+str(playAreaCurrent)+".png"))
+	if playAreaCurrent == 2:
+		$menuCenter/menuButtons/playAre/setPlayArea/leftSpace/playAreaPrev.hide()
+	playAreaCurrent -= 1
+	$menuCenter/menuButtons/playAre/setPlayArea/playAreaPreview.set_texture(load("res://Assets/playArea0"+str(playAreaCurrent)+".png"))
+	if playAreaCurrent == 3:
+		$menuCenter/menuButtons/playAre/setPlayArea/rightSpace/playAreaNext.show()

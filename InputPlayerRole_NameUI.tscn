@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://InputPlayerRole_NameUI.gd" type="Script" id=1]
+[ext_resource path="res://Assets/chooseTeams.png" type="Texture" id=2]
+[ext_resource path="res://button.tres" type="Theme" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 0.4, 0, 1 )
 
 [node name="InputPlayerRole_NameUI" type="Control"]
 anchor_right = 1.0
@@ -16,21 +21,36 @@ anchor_left = 0.1
 anchor_top = 0.1
 anchor_right = 0.1
 anchor_bottom = 0.1
-margin_left = 30.0
-margin_right = 71.0
-margin_bottom = 20.0
+margin_left = 64.1
+margin_top = 2.0
+margin_right = 164.1
+margin_bottom = 32.0
+rect_min_size = Vector2( 100, 25 )
+theme = ExtResource( 3 )
 text = "back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="chooseTeams" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.2
-anchor_right = 0.5
-anchor_bottom = 0.2
-margin_left = -432.0
-margin_right = 432.0
+[node name="centerTitle" type="CenterContainer" parent="."]
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.3
+margin_bottom = 74.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chooseTeams" type="TextureRect" parent="centerTitle"]
+margin_left = 616.0
+margin_right = 916.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,15 +58,18 @@ __meta__ = {
 [node name="centermenu" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 3.0
+margin_right = 3.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="menuButtons" type="VBoxContainer" parent="centermenu"]
 margin_left = 643.0
-margin_top = 353.0
+margin_top = 333.0
 margin_right = 889.0
-margin_bottom = 509.0
+margin_bottom = 529.0
 custom_constants/separation = 10
 alignment = 1
 __meta__ = {
@@ -132,12 +155,14 @@ text = "Player 8 DEFENDER"
 [node name="nameRole" type="HBoxContainer" parent="centermenu/menuButtons"]
 margin_top = 78.0
 margin_right = 246.0
-margin_bottom = 126.0
+margin_bottom = 136.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
 alignment = 1
 
 [node name="inputPrompts" type="VBoxContainer" parent="centermenu/menuButtons/nameRole"]
-margin_right = 121.0
-margin_bottom = 48.0
+margin_right = 92.0
+margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 4
@@ -147,9 +172,10 @@ __meta__ = {
 }
 
 [node name="playerNamePrompt" type="Label" parent="centermenu/menuButtons/nameRole/inputPrompts"]
-margin_top = 8.0
-margin_right = 121.0
-margin_bottom = 22.0
+margin_top = 6.0
+margin_right = 92.0
+margin_bottom = 20.0
+size_flags_vertical = 6
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Choose Name"
 align = 2
@@ -158,9 +184,11 @@ __meta__ = {
 }
 
 [node name="roleSelectPrompt" type="Label" parent="centermenu/menuButtons/nameRole/inputPrompts"]
-margin_top = 26.0
-margin_right = 121.0
-margin_bottom = 40.0
+margin_top = 37.0
+margin_right = 92.0
+margin_bottom = 51.0
+size_flags_horizontal = 9
+size_flags_vertical = 6
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Current Role"
 align = 2
@@ -169,16 +197,17 @@ __meta__ = {
 }
 
 [node name="inputControls" type="VBoxContainer" parent="centermenu/menuButtons/nameRole"]
-margin_left = 125.0
+margin_left = 96.0
 margin_right = 246.0
-margin_bottom = 48.0
+margin_bottom = 58.0
 size_flags_horizontal = 3
 custom_constants/separation = 4
 
 [node name="playerNameInput" type="LineEdit" parent="centermenu/menuButtons/nameRole/inputControls"]
-margin_right = 121.0
-margin_bottom = 24.0
+margin_right = 150.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
+theme = ExtResource( 3 )
 text = "Merol Muspi"
 align = 1
 __meta__ = {
@@ -186,36 +215,49 @@ __meta__ = {
 }
 
 [node name="roleSelectInput" type="Button" parent="centermenu/menuButtons/nameRole/inputControls"]
-margin_top = 28.0
-margin_right = 121.0
-margin_bottom = 48.0
+margin_top = 33.0
+margin_right = 150.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 150, 25 )
 size_flags_horizontal = 3
+theme = ExtResource( 3 )
 text = "RUNNER"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="startGameButton" type="Button" parent="centermenu/menuButtons"]
-margin_top = 136.0
+margin_top = 146.0
 margin_right = 246.0
-margin_bottom = 156.0
+margin_bottom = 196.0
+rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
+theme = ExtResource( 3 )
+custom_styles/hover = SubResource( 1 )
 text = "Start Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="namePopups" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
 margin_right = 40.0
-margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="noNameAlert" type="AcceptDialog" parent="namePopups"]
+visible = true
 margin_right = 83.0
 margin_bottom = 58.0
+mouse_filter = 2
 window_title = "Name Not Entered"
 dialog_text = "You must enter a name."
 
 [node name="longNameAlert" type="AcceptDialog" parent="namePopups"]
+visible = true
 margin_right = 83.0
 margin_bottom = 58.0
 window_title = "Character Limit Exceeded"
@@ -228,7 +270,6 @@ margin_bottom = 58.0
 window_title = "Illegal Character Detected"
 dialog_text = "Name must contain only standard letters, numbers, or spaces."
 
-[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="text_entered" from="centermenu/menuButtons/nameRole/inputControls/playerNameInput" to="." method="_on_playerNameInput_text_entered"]
 [connection signal="pressed" from="centermenu/menuButtons/nameRole/inputControls/roleSelectInput" to="." method="_on_roleSelectInput_pressed"]
 [connection signal="pressed" from="centermenu/menuButtons/startGameButton" to="." method="_on_startGameButton_pressed"]
