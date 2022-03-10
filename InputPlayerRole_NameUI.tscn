@@ -226,7 +226,7 @@ visible = true
 margin_right = 83.0
 margin_bottom = 58.0
 window_title = "Illegal Character Detected"
-dialog_text = "Please remove emojis and other special characters."
+dialog_text = "Name must contain only standard letters, numbers, or spaces."
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="text_entered" from="centermenu/menuButtons/nameRole/inputControls/playerNameInput" to="." method="_on_playerNameInput_text_entered"]

@@ -28,7 +28,14 @@ func _on_startGameButton_pressed():
 	if playerName == "":
 		$namePopups/noNameAlert.popup_centered()
 		return
-	elif playerName.length() > 15:
+	for i in playerName:
+		if not(ord(i) > 29 and ord(i) < 40):
+			if not(ord(i) > 64 and ord(i) < 91):
+				if not(ord(i) > 96 and ord(i) < 123):
+					if ord(i) != 32:
+						$namePopups/illegalCharacterAlert.popup_centered()
+						return
+	if playerName.length() > 15:
 		$namePopups/longNameAlert.popup_centered()
 		return
 	SceneManager.passPlayerNoLayout(self, "res://move.tscn")
