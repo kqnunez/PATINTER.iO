@@ -11,6 +11,10 @@ __meta__ = {
 }
 
 [node name="back" type="Button" parent="."]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.1
+anchor_bottom = 0.1
 margin_left = 30.0
 margin_right = 50.0
 margin_bottom = 20.0
@@ -19,44 +23,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="gameSettingMenu" type="VBoxContainer" parent="."]
+[node name="menuCenter" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 80.0
-margin_top = 120.0
-margin_right = -80.0
-margin_bottom = -120.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="logo" type="TextureRect" parent="gameSettingMenu"]
-margin_right = 1372.0
+[node name="chooseTeams" type="TextureRect" parent="menuCenter"]
+margin_left = 766.0
+margin_top = 431.0
+margin_right = 766.0
+margin_bottom = 431.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="verticalCenter" type="HBoxContainer" parent="gameSettingMenu"]
-margin_top = 4.0
-margin_right = 1372.0
-margin_bottom = 622.0
-size_flags_vertical = 3
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="sideMargins" type="MarginContainer" parent="gameSettingMenu/verticalCenter"]
-margin_left = 337.0
-margin_right = 1035.0
-margin_bottom = 618.0
-custom_constants/margin_right = 250
-custom_constants/margin_left = 250
-
-[node name="menuButtons" type="VBoxContainer" parent="gameSettingMenu/verticalCenter/sideMargins"]
-margin_left = 250.0
-margin_right = 448.0
-margin_bottom = 618.0
+[node name="menuButtons" type="VBoxContainer" parent="menuCenter"]
+margin_left = 667.0
+margin_top = 311.0
+margin_right = 865.0
+margin_bottom = 551.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 30
@@ -65,15 +52,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="noOfPlayers" type="VBoxContainer" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 189.0
+[node name="noOfPlayers" type="VBoxContainer" parent="menuCenter/menuButtons"]
 margin_right = 198.0
-margin_bottom = 231.0
+margin_bottom = 42.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="noOfPlayersLabel" type="Label" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/noOfPlayers"]
+[node name="noOfPlayersLabel" type="Label" parent="menuCenter/menuButtons/noOfPlayers"]
 margin_right = 198.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -83,7 +69,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="noOfPlayersInput" type="LineEdit" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/noOfPlayers"]
+[node name="noOfPlayersInput" type="LineEdit" parent="menuCenter/menuButtons/noOfPlayers"]
 margin_top = 18.0
 margin_right = 198.0
 margin_bottom = 42.0
@@ -93,12 +79,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="playAre" type="VBoxContainer" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 261.0
+[node name="playAre" type="VBoxContainer" parent="menuCenter/menuButtons"]
+margin_top = 72.0
 margin_right = 198.0
-margin_bottom = 379.0
+margin_bottom = 190.0
 
-[node name="playAreaPrompt" type="Label" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre"]
+[node name="playAreaPrompt" type="Label" parent="menuCenter/menuButtons/playAre"]
 margin_right = 198.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -108,14 +94,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="setPlayArea" type="HBoxContainer" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre"]
+[node name="setPlayArea" type="HBoxContainer" parent="menuCenter/menuButtons/playAre"]
 margin_top = 18.0
 margin_right = 198.0
 margin_bottom = 118.0
 rect_pivot_offset = Vector2( -354, -19 )
 alignment = 1
 
-[node name="playAreaPrev" type="Button" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea"]
+[node name="playAreaPrev" type="Button" parent="menuCenter/menuButtons/playAre/setPlayArea"]
 margin_right = 20.0
 margin_bottom = 20.0
 size_flags_vertical = 0
@@ -124,7 +110,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="playAreaPreview" type="TextureRect" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea"]
+[node name="playAreaPreview" type="TextureRect" parent="menuCenter/menuButtons/playAre/setPlayArea"]
 margin_left = 24.0
 margin_right = 174.0
 margin_bottom = 100.0
@@ -137,17 +123,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="playAreaNext" type="Button" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea"]
+[node name="playAreaNext" type="Button" parent="menuCenter/menuButtons/playAre/setPlayArea"]
 margin_left = 178.0
 margin_right = 198.0
 margin_bottom = 20.0
 size_flags_vertical = 0
 text = ">"
 
-[node name="roleSelectButton" type="Button" parent="gameSettingMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 409.0
+[node name="roleSelectButton" type="Button" parent="menuCenter/menuButtons"]
+margin_top = 220.0
 margin_right = 198.0
-margin_bottom = 429.0
+margin_bottom = 240.0
 size_flags_horizontal = 3
 text = "Choose Teams"
 __meta__ = {
@@ -163,6 +149,6 @@ window_title = "Invalid Number of Players"
 dialog_text = "Please choose a number between 2 and 8."
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea/playAreaPrev" to="." method="_on_playAreaPrev_pressed"]
-[connection signal="pressed" from="gameSettingMenu/verticalCenter/sideMargins/menuButtons/playAre/setPlayArea/playAreaNext" to="." method="_on_playAreaNext_pressed"]
-[connection signal="pressed" from="gameSettingMenu/verticalCenter/sideMargins/menuButtons/roleSelectButton" to="." method="_on_roleSelectButton_pressed"]
+[connection signal="pressed" from="menuCenter/menuButtons/playAre/setPlayArea/playAreaPrev" to="." method="_on_playAreaPrev_pressed"]
+[connection signal="pressed" from="menuCenter/menuButtons/playAre/setPlayArea/playAreaNext" to="." method="_on_playAreaNext_pressed"]
+[connection signal="pressed" from="menuCenter/menuButtons/roleSelectButton" to="." method="_on_roleSelectButton_pressed"]

@@ -4,66 +4,50 @@
 [ext_resource path="res://Assets/logo.png" type="Texture" id=2]
 
 [node name="Start_ExitGameUI" type="Control"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -512.0
-margin_top = -600.0
-margin_right = 512.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="mainMenu" type="VBoxContainer" parent="."]
+[node name="centerLogo" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.4
+margin_left = -271.0
+margin_right = 271.0
+margin_bottom = 88.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="TextureRect" parent="centerLogo"]
+margin_top = 86.0
+margin_right = 542.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 542, 88 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="centerMenu" type="CenterContainer" parent="."]
+anchor_top = 0.2
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 80.0
-margin_top = 120.0
-margin_right = -80.0
-margin_bottom = -120.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="centerLogo" type="CenterContainer" parent="mainMenu"]
-margin_right = 864.0
-margin_bottom = 88.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="logo" type="TextureRect" parent="mainMenu/centerLogo"]
-margin_left = 161.0
-margin_right = 703.0
-margin_bottom = 88.0
-texture = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="verticalCenter" type="HBoxContainer" parent="mainMenu"]
-margin_top = 92.0
-margin_right = 864.0
-margin_bottom = 360.0
-size_flags_vertical = 3
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="sideMargins" type="MarginContainer" parent="mainMenu/verticalCenter"]
-margin_left = 150.0
-margin_right = 713.0
-margin_bottom = 268.0
-custom_constants/margin_right = 250
-custom_constants/margin_left = 250
-
-[node name="menuButtons" type="VBoxContainer" parent="mainMenu/verticalCenter/sideMargins"]
-margin_left = 250.0
-margin_right = 313.0
-margin_bottom = 268.0
+[node name="menuButtons" type="VBoxContainer" parent="centerMenu"]
+margin_left = 734.0
+margin_top = 310.0
+margin_right = 797.0
+margin_bottom = 378.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
@@ -71,23 +55,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="startButton" type="Button" parent="mainMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 100.0
+[node name="startButton" type="Button" parent="centerMenu/menuButtons"]
 margin_right = 63.0
-margin_bottom = 120.0
+margin_bottom = 20.0
 text = "Start"
 
-[node name="optionsButton" type="Button" parent="mainMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 124.0
+[node name="optionsButton" type="Button" parent="centerMenu/menuButtons"]
+margin_top = 24.0
 margin_right = 63.0
-margin_bottom = 144.0
+margin_bottom = 44.0
 text = "Options"
 
-[node name="exitButton" type="Button" parent="mainMenu/verticalCenter/sideMargins/menuButtons"]
-margin_top = 148.0
+[node name="exitButton" type="Button" parent="centerMenu/menuButtons"]
+margin_top = 48.0
 margin_right = 63.0
-margin_bottom = 168.0
+margin_bottom = 68.0
 text = "Exit"
 
-[connection signal="pressed" from="mainMenu/verticalCenter/sideMargins/menuButtons/startButton" to="." method="_on_startButton_pressed"]
-[connection signal="pressed" from="mainMenu/verticalCenter/sideMargins/menuButtons/exitButton" to="." method="_on_exitButton_pressed"]
+[connection signal="pressed" from="centerMenu/menuButtons/startButton" to="." method="_on_startButton_pressed"]
+[connection signal="pressed" from="centerMenu/menuButtons/exitButton" to="." method="_on_exitButton_pressed"]
