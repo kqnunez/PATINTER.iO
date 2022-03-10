@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Start_ExitGameUI.gd" type="Script" id=1]
+[ext_resource path="res://Assets/logo.png" type="Texture" id=2]
+[ext_resource path="res://button.tres" type="Theme" id=3]
+
+[node name="Start_ExitGameUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="centerLogo" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.4
+margin_left = -271.0
+margin_right = 271.0
+margin_bottom = 88.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="TextureRect" parent="centerLogo"]
+margin_top = 86.0
+margin_right = 542.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 542, 88 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="centerMenu" type="CenterContainer" parent="."]
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menuButtons" type="VBoxContainer" parent="centerMenu"]
+margin_left = 666.0
+margin_top = 259.0
+margin_right = 866.0
+margin_bottom = 429.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="startButton" type="Button" parent="centerMenu/menuButtons"]
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+text = "Start"
+
+[node name="optionsButton" type="Button" parent="centerMenu/menuButtons"]
+margin_top = 60.0
+margin_right = 200.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+text = "Options"
+
+[node name="exitButton" type="Button" parent="centerMenu/menuButtons"]
+margin_top = 120.0
+margin_right = 200.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+text = "Exit"
+
+[connection signal="pressed" from="centerMenu/menuButtons/startButton" to="." method="_on_startButton_pressed"]
+[connection signal="pressed" from="centerMenu/menuButtons/exitButton" to="." method="_on_exitButton_pressed"]
