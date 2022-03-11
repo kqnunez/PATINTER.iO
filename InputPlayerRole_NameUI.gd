@@ -38,7 +38,7 @@ func _on_startGameButton_pressed():
 	if playerName.length() > 15:
 		$namePopups/longNameAlert.popup_centered()
 		return
-	SceneManager.passPlayerNoLayout(self, "res://move.tscn")
+	SceneManager.passPlayerNoLayout(self, "res://PlayGameUI.tscn")
 
 func _on_roleSelectInput_pressed():
 	playerName = $centermenu/menuButtons/nameRole/inputControls/playerNameInput.get_text()
