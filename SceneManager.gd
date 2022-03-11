@@ -17,6 +17,12 @@ func passPlayerNoLayout(oldScene, newScenePath):
 	newScene.playerNo = int(oldScene.playerNo)
 	newScene.playAreaLayout = int(oldScene.playAreaLayout)
 	
+	#If the old scene is the scene right before the game screen, pass player role and player name too.
+	#Might be changed to pass list of player roles and names once multiplayer is implemented
+	if "playerRole" in oldScene and "playerName" in oldScene:
+		newScene.playerRole = int(oldScene.playerRole)
+		newScene.playerName = String(oldScene.playerName)
+	
 	get_tree().get_root().remove_child(oldScene)
 	get_tree().get_root().add_child(newScene)
 	get_tree().set_current_scene(newScene)
