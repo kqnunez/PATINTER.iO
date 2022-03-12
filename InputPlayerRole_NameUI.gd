@@ -29,7 +29,7 @@ func _on_startGameButton_pressed():
 		$namePopups/noNameAlert.popup_centered()
 		return
 	for i in playerName:
-		if not(ord(i) > 29 and ord(i) < 40):
+		if not(ord(i) > 48 and ord(i) < 57):
 			if not(ord(i) > 64 and ord(i) < 91):
 				if not(ord(i) > 96 and ord(i) < 123):
 					if ord(i) != 32:
