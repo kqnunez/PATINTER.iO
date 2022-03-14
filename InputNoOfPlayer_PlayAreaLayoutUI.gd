@@ -29,7 +29,7 @@ func _on_roleSelectButton_pressed():
 	SceneManager.passPlayerNoLayout(self, "res://InputPlayerRole_NameUI.tscn")
 	
 func _on_back_pressed():
-	get_tree().change_scene("res://InputNoOfPlayer_PlayAreaLayoutUI.tscn")
+	get_tree().change_scene("res://Start_ExitGameUI.tscn")
 
 func _on_playAreaNext_pressed():
 	if playAreaCurrent == 3:

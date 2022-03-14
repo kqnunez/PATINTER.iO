@@ -11,6 +11,7 @@ bg_color = Color( 1, 0.4, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -114, 62 )
+mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -55,7 +56,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="centermenu" type="CenterContainer" parent="."]
+[node name="centerMenu" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 3.0
@@ -65,7 +66,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="menuButtons" type="VBoxContainer" parent="centermenu"]
+[node name="menuButtons" type="VBoxContainer" parent="centerMenu"]
 margin_left = 643.0
 margin_top = 333.0
 margin_right = 889.0
@@ -76,23 +77,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="roles" type="HBoxContainer" parent="centermenu/menuButtons"]
+[node name="roles" type="HBoxContainer" parent="centerMenu/menuButtons"]
 margin_right = 246.0
 margin_bottom = 68.0
 custom_constants/separation = 4
 
-[node name="players1to4" type="VBoxContainer" parent="centermenu/menuButtons/roles"]
+[node name="players1to4" type="VBoxContainer" parent="centerMenu/menuButtons/roles"]
 margin_right = 121.0
 margin_bottom = 68.0
 custom_constants/separation = 4
 
-[node name="playerLabel1" type="Label" parent="centermenu/menuButtons/roles/players1to4"]
+[node name="playerLabel1" type="Label" parent="centerMenu/menuButtons/roles/players1to4"]
 margin_right = 121.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 1 RUNNER"
 
-[node name="playerLabel2" type="Label" parent="centermenu/menuButtons/roles/players1to4"]
+[node name="playerLabel2" type="Label" parent="centerMenu/menuButtons/roles/players1to4"]
 margin_top = 18.0
 margin_right = 121.0
 margin_bottom = 32.0
@@ -102,27 +103,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="playerLabel3" type="Label" parent="centermenu/menuButtons/roles/players1to4"]
+[node name="playerLabel3" type="Label" parent="centerMenu/menuButtons/roles/players1to4"]
 margin_top = 36.0
 margin_right = 121.0
 margin_bottom = 50.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 3 DEFENDER"
 
-[node name="playerLabel4" type="Label" parent="centermenu/menuButtons/roles/players1to4"]
+[node name="playerLabel4" type="Label" parent="centerMenu/menuButtons/roles/players1to4"]
 margin_top = 54.0
 margin_right = 121.0
 margin_bottom = 68.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 4 DEFENDER"
 
-[node name="players5to8" type="VBoxContainer" parent="centermenu/menuButtons/roles"]
+[node name="players5to8" type="VBoxContainer" parent="centerMenu/menuButtons/roles"]
 margin_left = 125.0
 margin_right = 246.0
 margin_bottom = 68.0
 custom_constants/separation = 4
 
-[node name="playerLabel5" type="Label" parent="centermenu/menuButtons/roles/players5to8"]
+[node name="playerLabel5" type="Label" parent="centerMenu/menuButtons/roles/players5to8"]
 margin_right = 121.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -131,28 +132,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="playerLabel6" type="Label" parent="centermenu/menuButtons/roles/players5to8"]
+[node name="playerLabel6" type="Label" parent="centerMenu/menuButtons/roles/players5to8"]
 margin_top = 18.0
 margin_right = 121.0
 margin_bottom = 32.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 6 DEFENDER"
 
-[node name="playerLabel7" type="Label" parent="centermenu/menuButtons/roles/players5to8"]
+[node name="playerLabel7" type="Label" parent="centerMenu/menuButtons/roles/players5to8"]
 margin_top = 36.0
 margin_right = 121.0
 margin_bottom = 50.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 7 DEFENDER"
 
-[node name="playerLabel8" type="Label" parent="centermenu/menuButtons/roles/players5to8"]
+[node name="playerLabel8" type="Label" parent="centerMenu/menuButtons/roles/players5to8"]
 margin_top = 54.0
 margin_right = 121.0
 margin_bottom = 68.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 8 DEFENDER"
 
-[node name="nameRole" type="HBoxContainer" parent="centermenu/menuButtons"]
+[node name="nameRole" type="HBoxContainer" parent="centerMenu/menuButtons"]
 margin_top = 78.0
 margin_right = 246.0
 margin_bottom = 136.0
@@ -160,7 +161,7 @@ size_flags_horizontal = 5
 size_flags_vertical = 5
 alignment = 1
 
-[node name="inputPrompts" type="VBoxContainer" parent="centermenu/menuButtons/nameRole"]
+[node name="inputPrompts" type="VBoxContainer" parent="centerMenu/menuButtons/nameRole"]
 margin_right = 92.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
@@ -171,7 +172,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="playerNamePrompt" type="Label" parent="centermenu/menuButtons/nameRole/inputPrompts"]
+[node name="playerNamePrompt" type="Label" parent="centerMenu/menuButtons/nameRole/inputPrompts"]
 margin_top = 6.0
 margin_right = 92.0
 margin_bottom = 20.0
@@ -183,7 +184,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="roleSelectPrompt" type="Label" parent="centermenu/menuButtons/nameRole/inputPrompts"]
+[node name="roleSelectPrompt" type="Label" parent="centerMenu/menuButtons/nameRole/inputPrompts"]
 margin_top = 37.0
 margin_right = 92.0
 margin_bottom = 51.0
@@ -196,14 +197,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="inputControls" type="VBoxContainer" parent="centermenu/menuButtons/nameRole"]
+[node name="inputControls" type="VBoxContainer" parent="centerMenu/menuButtons/nameRole"]
 margin_left = 96.0
 margin_right = 246.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
 custom_constants/separation = 4
 
-[node name="playerNameInput" type="LineEdit" parent="centermenu/menuButtons/nameRole/inputControls"]
+[node name="playerNameInput" type="LineEdit" parent="centerMenu/menuButtons/nameRole/inputControls"]
 margin_right = 150.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
@@ -214,7 +215,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="roleSelectInput" type="Button" parent="centermenu/menuButtons/nameRole/inputControls"]
+[node name="roleSelectInput" type="Button" parent="centerMenu/menuButtons/nameRole/inputControls"]
 margin_top = 33.0
 margin_right = 150.0
 margin_bottom = 58.0
@@ -226,7 +227,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="startGameButton" type="Button" parent="centermenu/menuButtons"]
+[node name="startGameButton" type="Button" parent="centerMenu/menuButtons"]
 margin_top = 146.0
 margin_right = 246.0
 margin_bottom = 196.0
@@ -270,6 +271,7 @@ margin_bottom = 58.0
 window_title = "Illegal Character Detected"
 dialog_text = "Name must contain only standard letters, numbers, or spaces."
 
-[connection signal="text_entered" from="centermenu/menuButtons/nameRole/inputControls/playerNameInput" to="." method="_on_playerNameInput_text_entered"]
-[connection signal="pressed" from="centermenu/menuButtons/nameRole/inputControls/roleSelectInput" to="." method="_on_roleSelectInput_pressed"]
-[connection signal="pressed" from="centermenu/menuButtons/startGameButton" to="." method="_on_startGameButton_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="text_entered" from="centerMenu/menuButtons/nameRole/inputControls/playerNameInput" to="." method="_on_playerNameInput_text_entered"]
+[connection signal="pressed" from="centerMenu/menuButtons/nameRole/inputControls/roleSelectInput" to="." method="_on_roleSelectInput_pressed"]
+[connection signal="pressed" from="centerMenu/menuButtons/startGameButton" to="." method="_on_startGameButton_pressed"]
