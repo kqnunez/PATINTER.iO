@@ -24,7 +24,7 @@ func _on_back_pressed():
 	get_tree().change_scene("res://InputNoOfPlayer_PlayAreaLayoutUI.tscn")
 	
 func _on_startGameButton_pressed():
-	playerName = $centermenu/menuButtons/nameRole/inputControls/playerNameInput.get_text()
+	playerName = $centerMenu/menuButtons/nameRole/inputControls/playerNameInput.get_text()
 	if playerName == "":
 		$namePopups/noNameAlert.popup_centered()
 		return
@@ -41,14 +41,14 @@ func _on_startGameButton_pressed():
 	SceneManager.passPlayerNoLayout(self, "res://move.tscn")
 
 func _on_roleSelectInput_pressed():
-	playerName = $centermenu/menuButtons/nameRole/inputControls/playerNameInput.get_text()
+	playerName = $centerMenu/menuButtons/nameRole/inputControls/playerNameInput.get_text()
 	
 	if playerRole == 0:
 		playerRole = 1
-		$centermenu/menuButtons/nameRole/inputControls/roleSelectInput.set_text("DEFENDER")
-		$centermenu/menuButtons/roles/players1to4/playerLabel1.set_text(playerName + " DEFENDER")
+		$centerMenu/menuButtons/nameRole/inputControls/roleSelectInput.set_text("DEFENDER")
+		$centerMenu/menuButtons/roles/players1to4/playerLabel1.set_text(playerName + " DEFENDER")
 	else:
 		playerRole = 0
-		$centermenu/menuButtons/nameRole/inputControls/roleSelectInput.set_text("RUNNER")
-		$centermenu/menuButtons/roles/players1to4/playerLabel1.set_text(playerName + " RUNNER")
+		$centerMenu/menuButtons/nameRole/inputControls/roleSelectInput.set_text("RUNNER")
+		$centerMenu/menuButtons/roles/players1to4/playerLabel1.set_text(playerName + " RUNNER")
 
