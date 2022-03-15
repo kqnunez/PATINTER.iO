@@ -39,20 +39,22 @@ extents = Vector2( 35, 35 )
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="DefenderBorder" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="DefenderBorder"]
 position = Vector2( 494, 286.5 )
 build_mode = 1
-polygon = PoolVector2Array( -384, -115.5, -384, 396.5, 426, 396.5, 426, -115.5 )
+polygon = PoolVector2Array( -410, -130, -410, 413, 440, 413, 440, -130 )
 
-[node name="GameArea" type="Sprite" parent="StaticBody2D/CollisionShape2D"]
+[node name="GameArea" type="Sprite" parent="DefenderBorder/CollisionShape2D"]
 position = Vector2( -494, -285.5 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 centered = false
 
-[node name="ExitButton" type="Button" parent="StaticBody2D/CollisionShape2D/GameArea"]
+[node name="ExitButton" type="Button" parent="DefenderBorder/CollisionShape2D/GameArea"]
 anchor_right = 1.0
 anchor_bottom = 0.9
 margin_left = 2484.0
@@ -71,17 +73,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RunnerBorder" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="RunnerBorder"]
+position = Vector2( 494, 286.5 )
+build_mode = 1
+polygon = PoolVector2Array( -410, -250, -410, 520, 440, 520, 440, -250 )
+
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 90, 90 )
+position = Vector2( 505, 682 )
+collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 276, 112 )
+position = Vector2( 3.75, 1.75 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Player"]
-position = Vector2( 276, 112 )
+position = Vector2( 3.75, 1.75 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 3 )
 
-[connection signal="pressed" from="StaticBody2D/CollisionShape2D/GameArea/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="DefenderBorder/CollisionShape2D/GameArea/ExitButton" to="." method="_on_ExitButton_pressed"]
