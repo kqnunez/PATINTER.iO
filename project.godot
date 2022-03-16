@@ -8,8 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "GameHistory",
+"language": "GDScript",
+"path": "res://GameHistory.gd"
+}, {
+"base": "Resource",
+"class": "PlayerHistory",
+"language": "GDScript",
+"path": "res://PlayerHistory.gd"
+}, {
+"base": "Resource",
+"class": "SaveLoadGame",
+"language": "GDScript",
+"path": "res://SaveLoadGame.gd"
+} ]
 _global_script_class_icons={
+"GameHistory": "",
+"PlayerHistory": "",
+"SaveLoadGame": ""
 }
 
 [application]

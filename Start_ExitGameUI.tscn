@@ -82,6 +82,5 @@ rect_min_size = Vector2( 200, 50 )
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 text = "Exit"
-
 [connection signal="pressed" from="centerMenu/menuButtons/startButton" to="." method="_on_startButton_pressed"]
 [connection signal="pressed" from="centerMenu/menuButtons/exitButton" to="." method="_on_exitButton_pressed"]
