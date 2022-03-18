@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://InputPlayerRole_NameUI.gd" type="Script" id=1]
 [ext_resource path="res://Assets/chooseTeams.png" type="Texture" id=2]
-[ext_resource path="res://button.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/styles/patinterio.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/styles/patinteriowindow.tres" type="Theme" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.4, 0, 1 )
@@ -68,9 +69,9 @@ __meta__ = {
 
 [node name="menuButtons" type="VBoxContainer" parent="centerMenu"]
 margin_left = 643.0
-margin_top = 333.0
+margin_top = 338.0
 margin_right = 889.0
-margin_bottom = 529.0
+margin_bottom = 523.0
 custom_constants/separation = 10
 alignment = 1
 __meta__ = {
@@ -156,14 +157,14 @@ text = "Player 8 DEFENDER"
 [node name="nameRole" type="HBoxContainer" parent="centerMenu/menuButtons"]
 margin_top = 78.0
 margin_right = 246.0
-margin_bottom = 136.0
+margin_bottom = 125.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
 alignment = 1
 
 [node name="inputPrompts" type="VBoxContainer" parent="centerMenu/menuButtons/nameRole"]
 margin_right = 92.0
-margin_bottom = 58.0
+margin_bottom = 47.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 4
@@ -173,9 +174,9 @@ __meta__ = {
 }
 
 [node name="playerNamePrompt" type="Label" parent="centerMenu/menuButtons/nameRole/inputPrompts"]
-margin_top = 6.0
+margin_top = 3.0
 margin_right = 92.0
-margin_bottom = 20.0
+margin_bottom = 17.0
 size_flags_vertical = 6
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Choose Name"
@@ -185,9 +186,9 @@ __meta__ = {
 }
 
 [node name="roleSelectPrompt" type="Label" parent="centerMenu/menuButtons/nameRole/inputPrompts"]
-margin_top = 37.0
+margin_top = 29.0
 margin_right = 92.0
-margin_bottom = 51.0
+margin_bottom = 43.0
 size_flags_horizontal = 9
 size_flags_vertical = 6
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -200,13 +201,13 @@ __meta__ = {
 [node name="inputControls" type="VBoxContainer" parent="centerMenu/menuButtons/nameRole"]
 margin_left = 96.0
 margin_right = 246.0
-margin_bottom = 58.0
+margin_bottom = 47.0
 size_flags_horizontal = 3
 custom_constants/separation = 4
 
 [node name="playerNameInput" type="LineEdit" parent="centerMenu/menuButtons/nameRole/inputControls"]
 margin_right = 150.0
-margin_bottom = 29.0
+margin_bottom = 18.0
 size_flags_horizontal = 3
 theme = ExtResource( 3 )
 text = "Merol Muspi"
@@ -216,9 +217,9 @@ __meta__ = {
 }
 
 [node name="roleSelectInput" type="Button" parent="centerMenu/menuButtons/nameRole/inputControls"]
-margin_top = 33.0
+margin_top = 22.0
 margin_right = 150.0
-margin_bottom = 58.0
+margin_bottom = 47.0
 rect_min_size = Vector2( 150, 25 )
 size_flags_horizontal = 3
 theme = ExtResource( 3 )
@@ -228,9 +229,9 @@ __meta__ = {
 }
 
 [node name="startGameButton" type="Button" parent="centerMenu/menuButtons"]
-margin_top = 146.0
+margin_top = 135.0
 margin_right = 246.0
-margin_bottom = 196.0
+margin_bottom = 185.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 theme = ExtResource( 3 )
@@ -245,6 +246,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -40.0
 margin_right = 40.0
+theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
