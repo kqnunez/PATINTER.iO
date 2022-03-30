@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/logo.png" type="Texture" id=1]
+[ext_resource path="res://Start_Exit_Game_UI.gd" type="Script" id=2]
+[ext_resource path="res://Assets/styles_and_fonts/patinterio.tres" type="Theme" id=3]
+
+[node name="Start_Exit_GameUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="center_logo" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.4
+margin_left = -271.0
+margin_right = 271.0
+margin_bottom = 88.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="TextureRect" parent="center_logo"]
+margin_top = 86.0
+margin_right = 542.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 542, 88 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="center_menu" type="CenterContainer" parent="."]
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu_buttons" type="VBoxContainer" parent="center_menu"]
+margin_left = 666.0
+margin_top = 259.0
+margin_right = 866.0
+margin_bottom = 429.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="start_button" type="Button" parent="center_menu/menu_buttons"]
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+text = "Start"
+
+[node name="options_button" type="Button" parent="center_menu/menu_buttons"]
+margin_top = 60.0
+margin_right = 200.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+text = "Options"
+
+[node name="exit_button" type="Button" parent="center_menu/menu_buttons"]
+margin_top = 120.0
+margin_right = 200.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+text = "Exit"
+
+[connection signal="pressed" from="center_menu/menu_buttons/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="center_menu/menu_buttons/exit_button" to="." method="_on_exit_button_pressed"]
