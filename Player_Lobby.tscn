@@ -1,18 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://InputPlayerRole_NameUI.gd" type="Script" id=1]
-[ext_resource path="res://Assets/chooseTeams.png" type="Texture" id=2]
-[ext_resource path="res://Assets/styles_and_fonts/patinterio.tres" type="Theme" id=3]
+[ext_resource path="res://Assets/styles_and_fonts/RacingSansOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Player_Lobby.gd" type="Script" id=3]
+[ext_resource path="res://Assets/styles_and_fonts/patinterio.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=3]
+default_font = SubResource( 2 )
+Label/colors/font_color = Color( 0.172549, 0.172549, 0.627451, 1 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 0.4, 0, 1 )
 
-[node name="InputPlayerRole_NameUI" type="Control"]
+[node name="Player_Lobby" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -114, 62 )
 mouse_filter = 2
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -27,14 +35,14 @@ margin_top = 2.0
 margin_right = 164.1
 margin_bottom = 32.0
 rect_min_size = Vector2( 100, 25 )
-theme = ExtResource( 3 )
+theme = ExtResource( 4 )
 text = "back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="centerTitle" type="CenterContainer" parent="."]
-anchor_top = 0.3
+anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 0.3
 margin_bottom = 74.0
@@ -42,19 +50,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="chooseTeams" type="TextureRect" parent="centerTitle"]
-margin_left = 616.0
-margin_right = 916.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 300, 100 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="lobbyName" type="Label" parent="centerTitle"]
+margin_left = 687.0
+margin_top = 82.0
+margin_right = 844.0
+margin_bottom = 121.0
+theme = SubResource( 3 )
+text = "Pat's Lobby"
 
 [node name="centerMenu" type="CenterContainer" parent="."]
 anchor_right = 1.0
@@ -67,9 +69,9 @@ __meta__ = {
 }
 
 [node name="menuButtons" type="VBoxContainer" parent="centerMenu"]
-margin_left = 643.0
+margin_left = 616.0
 margin_top = 338.0
-margin_right = 889.0
+margin_right = 916.0
 margin_bottom = 523.0
 custom_constants/separation = 10
 alignment = 1
@@ -78,93 +80,95 @@ __meta__ = {
 }
 
 [node name="roles" type="HBoxContainer" parent="centerMenu/menuButtons"]
-margin_right = 246.0
+margin_right = 300.0
 margin_bottom = 68.0
+rect_min_size = Vector2( 300, 0 )
 custom_constants/separation = 4
 
 [node name="players1to4" type="VBoxContainer" parent="centerMenu/menuButtons/roles"]
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 68.0
+size_flags_horizontal = 3
 custom_constants/separation = 4
 
 [node name="playerLabel1" type="Label" parent="centerMenu/menuButtons/roles/players1to4"]
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Player 1 RUNNER"
 
 [node name="playerLabel2" type="Label" parent="centerMenu/menuButtons/roles/players1to4"]
 margin_top = 18.0
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 32.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player 2 DEFENDER"
+text = "-"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="playerLabel3" type="Label" parent="centerMenu/menuButtons/roles/players1to4"]
 margin_top = 36.0
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 50.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player 3 DEFENDER"
+text = "-"
 
 [node name="playerLabel4" type="Label" parent="centerMenu/menuButtons/roles/players1to4"]
 margin_top = 54.0
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 68.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player 4 DEFENDER"
+text = "-"
 
 [node name="players5to8" type="VBoxContainer" parent="centerMenu/menuButtons/roles"]
-margin_left = 125.0
-margin_right = 246.0
+margin_left = 152.0
+margin_right = 300.0
 margin_bottom = 68.0
+size_flags_horizontal = 3
 custom_constants/separation = 4
 
 [node name="playerLabel5" type="Label" parent="centerMenu/menuButtons/roles/players5to8"]
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player 5 RUNNER"
+text = "-"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="playerLabel6" type="Label" parent="centerMenu/menuButtons/roles/players5to8"]
 margin_top = 18.0
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 32.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player 6 DEFENDER"
+text = "-"
 
 [node name="playerLabel7" type="Label" parent="centerMenu/menuButtons/roles/players5to8"]
 margin_top = 36.0
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 50.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player 7 DEFENDER"
+text = "-"
 
 [node name="playerLabel8" type="Label" parent="centerMenu/menuButtons/roles/players5to8"]
 margin_top = 54.0
-margin_right = 121.0
+margin_right = 148.0
 margin_bottom = 68.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Player 8 DEFENDER"
+text = "-"
 
-[node name="nameRole" type="HBoxContainer" parent="centerMenu/menuButtons"]
+[node name="roleSelect" type="HBoxContainer" parent="centerMenu/menuButtons"]
 margin_top = 78.0
-margin_right = 246.0
+margin_right = 300.0
 margin_bottom = 125.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
 alignment = 1
 
-[node name="inputPrompts" type="VBoxContainer" parent="centerMenu/menuButtons/nameRole"]
-margin_right = 92.0
+[node name="inputPrompts" type="VBoxContainer" parent="centerMenu/menuButtons/roleSelect"]
+margin_right = 79.0
 margin_bottom = 47.0
-size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 4
 alignment = 1
@@ -172,21 +176,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="playerNamePrompt" type="Label" parent="centerMenu/menuButtons/nameRole/inputPrompts"]
+[node name="playerNamePrompt" type="Label" parent="centerMenu/menuButtons/roleSelect/inputPrompts"]
 margin_top = 3.0
-margin_right = 92.0
+margin_right = 79.0
 margin_bottom = 17.0
 size_flags_vertical = 6
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Choose Name"
+text = "Edit Name"
 align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="roleSelectPrompt" type="Label" parent="centerMenu/menuButtons/nameRole/inputPrompts"]
+[node name="roleSelectPrompt" type="Label" parent="centerMenu/menuButtons/roleSelect/inputPrompts"]
 margin_top = 29.0
-margin_right = 92.0
+margin_right = 79.0
 margin_bottom = 43.0
 size_flags_horizontal = 9
 size_flags_vertical = 6
@@ -197,31 +201,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="inputControls" type="VBoxContainer" parent="centerMenu/menuButtons/nameRole"]
-margin_left = 96.0
-margin_right = 246.0
+[node name="inputControls" type="VBoxContainer" parent="centerMenu/menuButtons/roleSelect"]
+margin_left = 83.0
+margin_right = 300.0
 margin_bottom = 47.0
 size_flags_horizontal = 3
 custom_constants/separation = 4
 
-[node name="playerNameInput" type="LineEdit" parent="centerMenu/menuButtons/nameRole/inputControls"]
-margin_right = 150.0
+[node name="playerNameInput" type="LineEdit" parent="centerMenu/menuButtons/roleSelect/inputControls"]
+margin_right = 217.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
-theme = ExtResource( 3 )
-text = "Merol Muspi"
+theme = ExtResource( 4 )
 align = 1
+max_length = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="roleSelectInput" type="Button" parent="centerMenu/menuButtons/nameRole/inputControls"]
+[node name="roleSelectInput" type="Button" parent="centerMenu/menuButtons/roleSelect/inputControls"]
 margin_top = 22.0
-margin_right = 150.0
+margin_right = 217.0
 margin_bottom = 47.0
 rect_min_size = Vector2( 150, 25 )
 size_flags_horizontal = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 4 )
 text = "RUNNER"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -229,11 +233,11 @@ __meta__ = {
 
 [node name="startGameButton" type="Button" parent="centerMenu/menuButtons"]
 margin_top = 135.0
-margin_right = 246.0
+margin_right = 300.0
 margin_bottom = 185.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
-theme = ExtResource( 3 )
+theme = ExtResource( 4 )
 custom_styles/hover = SubResource( 1 )
 text = "Start Game"
 __meta__ = {
@@ -245,7 +249,7 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -40.0
 margin_right = 40.0
-theme = ExtResource( 3 )
+theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -257,6 +261,9 @@ margin_bottom = 58.0
 mouse_filter = 2
 window_title = "Name Not Entered"
 dialog_text = "You must enter a name."
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="illegalCharacterAlert" type="AcceptDialog" parent="namePopups"]
 visible = true
@@ -266,6 +273,6 @@ window_title = "Illegal Character Detected"
 dialog_text = "Name must contain only standard letters, numbers, or spaces."
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
-[connection signal="text_entered" from="centerMenu/menuButtons/nameRole/inputControls/playerNameInput" to="." method="_on_playerNameInput_text_entered"]
-[connection signal="pressed" from="centerMenu/menuButtons/nameRole/inputControls/roleSelectInput" to="." method="_on_roleSelectInput_pressed"]
+[connection signal="text_entered" from="centerMenu/menuButtons/roleSelect/inputControls/playerNameInput" to="." method="_on_playerNameInput_text_entered"]
+[connection signal="pressed" from="centerMenu/menuButtons/roleSelect/inputControls/roleSelectInput" to="." method="_on_roleSelectInput_pressed"]
 [connection signal="pressed" from="centerMenu/menuButtons/startGameButton" to="." method="_on_startGameButton_pressed"]
