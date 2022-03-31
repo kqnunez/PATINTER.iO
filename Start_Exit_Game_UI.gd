@@ -14,10 +14,12 @@ func _ready():
 	var gameHistory = GameHistory.new()
 	var saveLoadGame = SaveLoadGame.new()
 	
-	print(gameHistory.getData())
-	saveLoadGame.loadData(false)
+	saveLoadGame.loadData("player")
+	print("Player History data upon start:")
 	print(saveLoadGame.data)
-	print("Data Loaded in Start_ExitGameUI")
+	saveLoadGame.loadData("game")
+	print("Game History data upon start:")
+	print(saveLoadGame.data)
 	
 
 # Testing the saving of game history and player history
@@ -33,10 +35,4 @@ func _on_start_button_pressed():
 	get_tree().change_scene("res://Create_Join_Game.tscn")
 
 func _on_exit_button_pressed():
-	var playerHistory = PlayerHistory.new()
-	var gameHistory = GameHistory.new()
-	var saveLoadGame = SaveLoadGame.new()
-	gameHistory._init([3,16,2022], [23,30], "Runner", 1, 2)
-	saveLoadGame.data = gameHistory.getData()
-	saveLoadGame.saveData(false)
 	get_tree().quit()
