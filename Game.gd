@@ -9,6 +9,7 @@ var playAreaLayout := 3
 var playerRole
 var playerName
 
+var gameOverFlag = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$DefenderBorder/CollisionShape2D/GameArea.set_texture(load("res://Assets/PlayArea%s.png" % (String(playAreaLayout)))) # Replace with function body.
@@ -42,12 +43,19 @@ func _on_ExitButton_pressed():
 
 
 func _on_Area2D_body_entered(body):
-	#When ending line passed by Runner, shows GameOverRunner and disables player input.
-	$GameOverScreen.show();
-	$GameOverScreen/TimeoutScreen.hide();
-	$Player.isGameOver = true
+	showGameOverScreen(1)
 
 func _on_timeout():
-	$GameOverScreen.show();
-	$GameOverScreen/RunnerWinScreen.hide();
-	$Player.isGameOver = true
+	showGameOverScreen(2)
+
+func showGameOverScreen(screenType):
+	if not gameOverFlag:
+		$GameOverScreen.show();
+		if screenType == 1:
+			$GameOverScreen/TimeoutScreen.hide();
+		elif screenType == 2:
+			$GameOverScreen/RunnerWinScreen.hide();
+		#Make sure to replace this with a for loop
+		$Player.isGameOver = true
+		$TimeLeftLabel.timerEnabled = false
+	
