@@ -38,7 +38,7 @@ func _on_startGameButton_pressed():
 					if ord(i) != 32:
 						$namePopups/illegalCharacterAlert.popup_centered()
 						return
-	SceneManager.passPlayerNoLayout(self, "res://PlayGameUI.tscn")
+	Scene_Manager.passPlayerNoLayout(self, "res://PlayGameUI.tscn")
 
 func _on_roleSelectInput_pressed():
 	playerName = $centerMenu/menuButtons/roleSelect/inputControls/playerNameInput.get_text()
