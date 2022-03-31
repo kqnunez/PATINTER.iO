@@ -9,10 +9,11 @@ var playAreaLayout := 3
 var playerRole
 var playerName
 
+var gameOverFlag = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$DefenderBorder/CollisionShape2D/GameArea.set_texture(load("res://Assets/PlayArea%s.png" % (String(playAreaLayout)))) # Replace with function body.
-	
+	$TimeLeftLabel.connect("timeout", self, "_on_timeout")
 	#Assign player role and name
 	#Adjust this part to handle multiple players
 	if playerRole == 0:
@@ -33,6 +34,28 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func _process(delta):
+	if playerRole == 0 and 0:
+		pass
 
 func _on_ExitButton_pressed():
 	get_tree().quit()
+
+
+func _on_Area2D_body_entered(body):
+	showGameOverScreen(1)
+
+func _on_timeout():
+	showGameOverScreen(2)
+
+func showGameOverScreen(screenType):
+	if not gameOverFlag:
+		$GameOverScreen.show();
+		if screenType == 1:
+			$GameOverScreen/TimeoutScreen.hide();
+		elif screenType == 2:
+			$GameOverScreen/RunnerWinScreen.hide();
+		#Make sure to replace this with a for loop
+		$Player.isGameOver = true
+		$TimeLeftLabel.timerEnabled = false
+	
