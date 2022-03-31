@@ -33,12 +33,12 @@ _global_script_class_icons={
 [application]
 
 config/name="patinter.io"
-run/main_scene="res://Start_ExitGameUI.tscn"
+run/main_scene="res://Start_Exit_Game_UI.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-SceneManager="*res://SceneManager.gd"
+Scene_Manager="*res://Scene_Manager.gd"
 
 [display]
 
