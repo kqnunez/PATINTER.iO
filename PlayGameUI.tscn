@@ -102,6 +102,16 @@ position = Vector2( 3.75, 1.75 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 3 )
 
+[node name="StaminaLabel" type="Label" parent="."]
+margin_left = 1327.0
+margin_top = 547.0
+margin_right = 1367.0
+margin_bottom = 561.0
+text = "8"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GameOverScreen" type="Panel" parent="."]
 visible = false
 margin_left = 471.0
