@@ -1,14 +1,15 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://Game.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Player1.png" type="Texture" id=3]
 [ext_resource path="res://Assets/PlayArea3.png" type="Texture" id=4]
 [ext_resource path="res://Assets/ExitButton.png" type="Texture" id=5]
 [ext_resource path="res://Assets/ExitButton_Dark.png" type="Texture" id=6]
 [ext_resource path="res://Assets/styles/game_over_ph.tres" type="Theme" id=7]
 [ext_resource path="res://Assets/styles/TimerLabel.tres" type="Theme" id=8]
-[ext_resource path="res://TimeLeftLabel.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/TimeLeftLabel.gd" type="Script" id=9]
+
 
 [sub_resource type="Theme" id=2]
 HSeparator/constants/separation = 4
