@@ -8,7 +8,7 @@ var playerNo := 2
 var playAreaLayout := 0
 var playAreaCurrent := 1
 var playerName := "Pat Interio"
-var lobbyName := "Pat's Lobby"
+var lobbyName := "127.0.0.1"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,13 +21,18 @@ func _on_back_pressed():
 	get_tree().change_scene("res://Start_Exit_Game_UI.tscn")
 	
 func _on_join_lobby_pressed():
-	$bad_lobby.popup_centered()
+	#$bad_lobby.popup_centered()
+	var player_name = $"center_menu/menu_buttons/player_name_input".text
+	var ip = $"center_menu/menu_buttons/lobby_addr_input".text
+	if not ip.is_valid_ip_address():
+		print("Invalid IP")
+		return
 	
-func _on_create_lobby1_pressed():
-	if save_player_name() and save_lobby_name():
+func _on_create_lobby_pressed():
+	if save_player_name() and save_lobby_addr():
 		$lobby_details_popup.popup()
 	
-func _on_create_lobby2_pressed():
+func _on_create_game_pressed():
 	playAreaLayout = playAreaCurrent
 	Scene_Manager.passPlayerNoLayout(self, "res://Player_Lobby.tscn")
 	
@@ -77,7 +82,7 @@ func save_player_name():
 						return 0
 	return 1
 	
-func save_lobby_name():
+func save_lobby_addr():
 	lobbyName = $center_menu/menu_buttons/lobby_name_input.get_text()
 	if lobbyName == "":
 		$name_popups/no_name_alert.popup_centered()

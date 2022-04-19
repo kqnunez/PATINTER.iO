@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Create_Join_Game.gd" type="Script" id=1]
 [ext_resource path="res://Assets/styles_and_fonts/patinterio.tres" type="Theme" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/buttonright.png" type="Texture" id=4]
 [ext_resource path="res://Assets/styles_and_fonts/Montserrat-Medium.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Assets/styles_and_fonts/patinteriowindow.tres" type="Theme" id=6]
+[ext_resource path="res://NetworkScript.gd" type="Script" id=7]
 
 [sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 1, 0.4, 0, 1 )
@@ -64,9 +65,9 @@ __meta__ = {
 
 [node name="menu_buttons" type="VBoxContainer" parent="center_menu"]
 margin_left = 666.0
-margin_top = 350.0
+margin_top = 317.0
 margin_right = 866.0
-margin_bottom = 512.0
+margin_bottom = 545.0
 rect_min_size = Vector2( 200, 0 )
 custom_constants/separation = 15
 
@@ -110,12 +111,33 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="create_or_join" type="HBoxContainer" parent="center_menu/menu_buttons"]
+[node name="lobby_addr_prompt" type="Label" parent="center_menu/menu_buttons"]
 margin_top = 132.0
 margin_right = 200.0
-margin_bottom = 162.0
+margin_bottom = 150.0
+text = "Lobby IP Address"
+align = 1
 
-[node name="create_lobby1" type="Button" parent="center_menu/menu_buttons/create_or_join"]
+[node name="lobby_addr_input" type="LineEdit" parent="center_menu/menu_buttons"]
+margin_top = 165.0
+margin_right = 200.0
+margin_bottom = 183.0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+text = "0.0.0.0"
+align = 1
+max_length = 15
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="create_or_join" type="HBoxContainer" parent="center_menu/menu_buttons"]
+margin_top = 198.0
+margin_right = 200.0
+margin_bottom = 228.0
+
+[node name="create_lobby" type="Button" parent="center_menu/menu_buttons/create_or_join"]
 margin_right = 98.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 0, 30 )
@@ -275,7 +297,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource( 4 )
 expand = true
 
-[node name="create_lobby2" type="Button" parent="lobby_details_popup/lobby_popup_center/lobby_size_input"]
+[node name="create_game" type="Button" parent="lobby_details_popup/lobby_popup_center/lobby_size_input"]
 margin_top = 206.0
 margin_right = 200.0
 margin_bottom = 236.0
@@ -287,6 +309,7 @@ custom_styles/normal = SubResource( 13 )
 text = "Create"
 
 [node name="name_popups" type="Control" parent="."]
+visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -40.0
@@ -318,7 +341,6 @@ __meta__ = {
 }
 
 [node name="bad_lobby" type="AcceptDialog" parent="."]
-visible = true
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -61.0
@@ -326,11 +348,14 @@ margin_right = 580.0
 window_title = "Lobby Not Found"
 dialog_text = "This lobby is not available. Please enter  a different lobby or create a new one."
 
+[node name="network_node" type="Node" parent="."]
+script = ExtResource( 7 )
+
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="center_menu/menu_buttons/create_or_join/create_lobby1" to="." method="_on_create_lobby1_pressed"]
+[connection signal="pressed" from="center_menu/menu_buttons/create_or_join/create_lobby" to="." method="_on_create_lobby_pressed"]
 [connection signal="pressed" from="center_menu/menu_buttons/create_or_join/join_lobby" to="." method="_on_join_lobby_pressed"]
 [connection signal="pressed" from="lobby_details_popup/lobby_popup_center/lobby_size_input/player_no_input/less_occupy/less" to="." method="_on_less_pressed"]
 [connection signal="pressed" from="lobby_details_popup/lobby_popup_center/lobby_size_input/player_no_input/more_occupy/more" to="." method="_on_more_pressed"]
 [connection signal="pressed" from="lobby_details_popup/lobby_popup_center/lobby_size_input/set_play_area/left_space/play_area_prev" to="." method="_on_play_area_prev_pressed"]
 [connection signal="pressed" from="lobby_details_popup/lobby_popup_center/lobby_size_input/set_play_area/right_space/play_area_next" to="." method="_on_play_area_next_pressed"]
-[connection signal="pressed" from="lobby_details_popup/lobby_popup_center/lobby_size_input/create_lobby2" to="." method="_on_create_lobby2_pressed"]
+[connection signal="pressed" from="lobby_details_popup/lobby_popup_center/lobby_size_input/create_game" to="." method="_on_create_game_pressed"]
