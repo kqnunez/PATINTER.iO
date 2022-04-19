@@ -1,12 +1,13 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Create_Join_Game.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Lobby/Create_Join_Game.gd" type="Script" id=1]
 [ext_resource path="res://Assets/styles_and_fonts/patinterio.tres" type="Theme" id=2]
 [ext_resource path="res://Assets/buttonleft.png" type="Texture" id=3]
 [ext_resource path="res://Assets/buttonright.png" type="Texture" id=4]
 [ext_resource path="res://Assets/styles_and_fonts/Montserrat-Medium.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Assets/styles_and_fonts/patinteriowindow.tres" type="Theme" id=6]
-[ext_resource path="res://NetworkScript.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/NetworkScript.gd" type="Script" id=7]
+
 
 [sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 1, 0.4, 0, 1 )
