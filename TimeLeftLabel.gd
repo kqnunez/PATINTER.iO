@@ -7,7 +7,7 @@ extends Label
 signal timeout
 
 const interval = 1
-var time = 5 # this notes how much seconds we count down from.
+var time = 60 # this notes how much seconds we count down from.
 var cur_time = time
 var timerEnabled = true
 # Called when the node enters the scene tree for the first time.
