@@ -38,16 +38,26 @@ func get_input():
 				velocity = 2 * velocity #Adjust constant when needed
 			else: #Stop sprinting when no stamina
 				velocity = Vector2.ZERO
-			
-		velocity = move_and_slide(velocity)
-	
-		#When sprinting, only decrease stamina if player actually moved (prevents stamina wastage when running against wall)
-		if velocity != Vector2.ZERO and Input.is_action_pressed('ui_alt'):
-			stamina -= 1
-			get_node("../StaminaLabel").set_text(str(stamina))
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	get_input()
+	
+	var collision = move_and_collide(velocity*delta)
+	
+	#Detect if player tagged someone/was tagged (collided with player on opposing team)
+	if collision:
+		if "playerRole" in collision.collider:
+			if not ((playerRole == "Runner" and collision.collider.playerRole == "Runner") or ("Defender" in playerRole and "Defender" in collision.collider.playerRole)):
+				if playerRole == "Runner": #Tagged runner is in charge of removing themselves
+					var tagEvent = collision.collider.playerName + " tagged " + playerName + "! " + playerName + " is out!"
+					get_node("../EventLabel").set_text(tagEvent)
+					get_parent().remove_child(self)
+		velocity = Vector2.ZERO
+
+	#When sprinting, only decrease stamina if player actually moved (prevents stamina wastage when running against wall)
+	if velocity != Vector2.ZERO and Input.is_action_pressed('ui_alt'):
+		stamina -= 1
+		get_node("../StaminaLabel").set_text(str(stamina))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
