@@ -33,7 +33,17 @@ func _ready():
 		else:
 			$Player.playerRole = "Horizontal Defender"
 
-	$Player.playerName = playerName
+	if playerName:
+		$Player.playerName = playerName
+	
+	#Additional dummy players to test collisions between players
+	$Player2._set_layers(3)
+	$Player2.playerRole = "Runner"
+	$Player2.playerName = "Player2"
+	
+	$Player3._set_layers(5)
+	$Player3.playerRole = "Horizontal Defender"
+	$Player3.playerName = "Player3"
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
