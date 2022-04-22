@@ -85,6 +85,8 @@ func showGameOverScreen(screenType):
 		elif screenType == 2:
 			$GameOverScreen/RunnerWinScreen.hide();
 		#Make sure to replace this with a for loop
-		$Player.isGameOver = true
+		for child in get_children():
+			if "playerName" in child:
+				child.isGameOver = true
 		$TimeLeftLabel.timerEnabled = false
 	
