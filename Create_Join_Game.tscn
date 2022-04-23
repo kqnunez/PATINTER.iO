@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Lobby/Create_Join_Game.gd" type="Script" id=1]
 [ext_resource path="res://Assets/styles_and_fonts/patinterio.tres" type="Theme" id=2]
@@ -6,8 +6,6 @@
 [ext_resource path="res://Assets/buttonright.png" type="Texture" id=4]
 [ext_resource path="res://Assets/styles_and_fonts/Montserrat-Medium.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Assets/styles_and_fonts/patinteriowindow.tres" type="Theme" id=6]
-[ext_resource path="res://Scripts/NetworkScript.gd" type="Script" id=7]
-
 
 [sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 1, 0.4, 0, 1 )
@@ -348,9 +346,6 @@ margin_top = -61.0
 margin_right = 580.0
 window_title = "Lobby Not Found"
 dialog_text = "This lobby is not available. Please enter  a different lobby or create a new one."
-
-[node name="network_node" type="Node" parent="."]
-script = ExtResource( 7 )
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="center_menu/menu_buttons/create_or_join/create_lobby" to="." method="_on_create_lobby_pressed"]
