@@ -4,7 +4,7 @@ const DEFAULT_PORT = 10567
 var peer = null
 var player_name =  ""
 var players = {}
-var cur_player_no = 1;
+var cur_player_no = 2;
 
 signal refresh_player_list()
 signal connection_failed()
@@ -42,7 +42,6 @@ func _server_disconnected():
 	print("Server Has Disconnected")
 
 remote func add_player(player_name_input):
-	print("add player")
 	var player_id = get_tree().get_rpc_sender_id()
 	
 	#Always initialize a player to be a runner
@@ -53,7 +52,7 @@ remote func add_player(player_name_input):
 
 func request_change_role():
 	print("Requesting Role Change")
-	emit_signal("refresh_player_list")
+	#emit_signal("refresh_player_list")
 	rpc("change_player_role")
 	
 remote func change_player_role():
@@ -65,20 +64,28 @@ remote func change_player_role():
 			cur_player[2] = 1
 		else:
 			cur_player[2] = 0
-	emit_signal("refresh_player_list")
+	#emit_signal("refresh_player_list")
 	
 func request_name_change(name):
 	print("Requesting Name Change")
-	emit_signal("refresh_player_list")
+	#emit_signal("refresh_player_list")
 	rpc("change_player_name", name)
 
 remote func change_player_name(name):
 	var player_id = get_tree().get_rpc_sender_id()
 	print("Name Change for " + String(player_id))
 	if player_id != 0:
+		rset("players[" + String(player_id) + "][0]", name)
 		var cur_player = players[player_id]
 		cur_player[0] = name
 	emit_signal("refresh_player_list")
+
+func request_player_id():
+	var id = rpc("get_player_id")
+	return id
+	
+remotesync func get_player_id():
+	return get_tree().get_rpc_sender_id()
 	
 func host_game(player_name_input):
 	print("Host Game")

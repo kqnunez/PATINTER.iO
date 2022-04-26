@@ -213,6 +213,7 @@ margin_right = 217.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 theme = ExtResource( 4 )
+text = "Pat Interio"
 align = 1
 max_length = 15
 __meta__ = {
