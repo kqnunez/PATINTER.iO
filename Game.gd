@@ -68,7 +68,7 @@ func _on_ExitButton_pressed():
 	saveLoadGame.saveData("player")
 	saveLoadGame.data = gameHistory.getData()
 	saveLoadGame.saveData("game")
-	get_tree().quit()
+	get_tree().change_scene("res://Start_Exit_Game_UI.tscn")
 
 
 func _on_Area2D_body_entered(body):
@@ -90,3 +90,7 @@ func showGameOverScreen(screenType):
 				child.isGameOver = true
 		$TimeLeftLabel.timerEnabled = false
 	
+
+
+func _on_Button_pressed():
+	Scene_Manager.passPlayerNoLayout(self, "res://PlayGameUI.tscn")
