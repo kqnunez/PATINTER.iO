@@ -80,9 +80,12 @@ func _physics_process(_delta):
 		if other_player_role == playerRole or (other_player_role < 4 and playerRole < 4): #If both runners/both defenders, do nothing
 			pass
 		elif other_player_role < 4 and playerRole == 4:
-			rpc("remove_player")
+			rpc("remove_player", self)
+			get_node("/root/Game").showGameOverScreen(3)
+		else:
+			get_node("/root/Game").showGameOverScreen(3)
 	
-remotesync func remove_player():
+remotesync func remove_player(player_to_hide):
 	self.set_physics_process(false)
 	self.hide() #pass
 

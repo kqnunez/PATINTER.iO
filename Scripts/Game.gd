@@ -47,6 +47,12 @@ func _on_ExitButton_pressed():
 	var gameHistory = GameHistory.new()
 	var saveLoadGame = SaveLoadGame.new()
 	var role
+	
+	#set up null values
+	playerName = "Pat Interio"
+	playerRole = 1
+	date = [0,1]
+	time = [1,2]
 	if self.playerRole == 0:
 		role = "Runner"
 	else:
@@ -71,9 +77,11 @@ func showGameOverScreen(screenType):
 	if not gameOverFlag:
 		$GameOverScreen.show();
 		if screenType == 1:
-			$GameOverScreen/TimeoutScreen.hide();
+			$GameOverScreen/RunnerScreen.show();
 		elif screenType == 2:
-			$GameOverScreen/RunnerWinScreen.hide();
+			$GameOverScreen/TimeoutWinScreen.show();
+		elif screenType == 3:
+			$GameOverScreen/DefenderWinScreen.show();
 		#Make sure to replace this with a for loop
 #		$Player.isGameOver = true
 		get_tree().set_pause(true)
