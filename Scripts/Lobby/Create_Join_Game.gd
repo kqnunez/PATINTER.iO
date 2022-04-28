@@ -51,12 +51,14 @@ func _on_join_lobby_pressed():
 func _on_create_lobby_pressed():
 	if save_player_name() and save_lobby_addr():
 		$lobby_details_popup.popup()
-	NetworkScript.host_game(playerName)
+	
 		
 	
 func _on_create_game_pressed():
 	playAreaLayout = playAreaCurrent
-	
+	NetworkScript.num_players = playerNo
+	NetworkScript.host_game(playerName)
+	NetworkScript.layout = playAreaLayout
 	Scene_Manager.passPlayerNoLayout(self, "res://Player_Lobby.tscn")
 	
 func _on_play_area_next_pressed():
