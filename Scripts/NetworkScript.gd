@@ -221,7 +221,7 @@ remote func prep_game(spawns, host_players, layout):
 		print("Peer reached get ready")
 		# Tell server we are ready to start.
 		rpc_id(1, "peer_is_ready", get_tree().get_network_unique_id()) #1 is just an arbitrary value.
-	elif players.size() == 0:
+	elif players.size() == 1:
 		post_prep_game()
 		
 remote func post_prep_game():

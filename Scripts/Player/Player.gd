@@ -52,23 +52,38 @@ func get_input():
 			#When sprinting, only decrease stamina if player actually moved (prevents stamina wastage when running against wall)
 			if velocity != Vector2.ZERO and Input.is_action_pressed('ui_alt'):
 				stamina -= 1
-				get_node("Stamina").set_text(str(stamina))
+				get_node("Stamina").set_text(str(player_stamina))
 				get_node("/root/Game/StaminaLabel").set_text(str(stamina))
 				
 			rset("player_position", position)
 			rset("player_velocity", velocity)
+			rset("player_stamina", stamina)
 		else:
 			#position = player_position
 			position = position
-			velocity = player_velocity
+			#velocity = player_velocity
 		
 		move_and_slide(velocity)
+		
+		
 		if not is_network_master():
 			player_position = position
+			player_stamina = stamina
 			
 
 func _physics_process(_delta):
 	get_input()
+	
+	var collision = move_and_collide(player_velocity*_delta)
+	if collision:
+		var other_player_role = collision.collider.playerRole
+		if other_player_role == playerRole:
+			pass
+		elif other_player_role < 4 and playerRole == 4:
+			rpc("remove_player")
+	
+puppet func remove_player():
+	pass
 
 func set_player_name(name):
 	$Name.text = name
