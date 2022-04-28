@@ -24,11 +24,14 @@ func _ready():
 	if get_tree().is_network_server():
 		$playerListLeft.add_item(playerName+" RUNNER(You)")
 
-func refresh_list():
+func refresh_list(playerlist):
 	#print("Refreshing")
+	if playerlist != null:
+		NetworkScript.players = playerlist
 	var player_list = NetworkScript.get_player_list()
 	print(player_list)
 	var role = " RUNNER"
+	var playerID = get_tree().get_network_unique_id()
 	playerName = $centerMenu/menuButtons/roleSelect/inputControls/playerNameInput.get_text()
 	
 	#var label = $playerLabel
@@ -48,13 +51,18 @@ func refresh_list():
 	
 	#update other players in list.
 	for player_info in player_list:
+		if (get_tree().is_network_server() and player_info[1] == 1):
+			continue
+		if (playerID in NetworkScript.players and NetworkScript.players[playerID][1] == player_info[1] and not get_tree().is_network_server()):
+			print("taken")
+			continue
 		if player_info[2] == 1:
 			#print("ROLE WORD HAS CHANGED")
 			role = " DEFENDER"
 		else:
 			role = " RUNNER"
 		if player_info[1] > 4:
-			$playerListRIght.visible = true
+			$playerListRight.visible = true
 			$playerListRight.add_item(player_info[0] + String(role))
 		else:
 			$playerListLeft.add_item(player_info[0] + String(role))
@@ -69,7 +77,7 @@ func _on_startGameButton_pressed():
 	if get_tree().is_network_server():
 		NetworkScript.host_player_name = playerName
 		NetworkScript.host_role = playerRole
-		NetworkScript.begin_game()
+		NetworkScript.begin_game(playAreaLayout)
 		#print("Disabled For Debug")
 		#Scene_Manager.passPlayerNoLayout(self, "res://PlayGameUI.tscn")
 	
@@ -78,6 +86,7 @@ func _on_roleSelectInput_pressed():
 	var newName = $centerMenu/menuButtons/roleSelect/inputControls/playerNameInput.get_text()
 	playerName = newName
 	
+	var playerID = get_tree().get_network_unique_id()
 	if playerName == "":
 		$namePopups/noNameAlert.popup_centered()
 		return
@@ -90,7 +99,8 @@ func _on_roleSelectInput_pressed():
 						return
 	#change role and name locally, then pass it to the host.
 	
-#	if get_tree().is_network_server():
+
+
 	if playerRole == 0:
 		playerRole = 1
 #			$centerMenu/menuButtons/roleSelect/inputControls/roleSelectInput.set_text("DEFENDER")
@@ -99,8 +109,12 @@ func _on_roleSelectInput_pressed():
 		playerRole = 0
 #			$centerMenu/menuButtons/roleSelect/inputControls/roleSelectInput.set_text("RUNNER")
 #			$centerMenu/menuButtons/roles/players1to4/playerLabel1.set_text(playerName + " RUNNER")
-	print(playerRole)
+	#print(playerRole)
+	
+	if get_tree().is_network_server():
+		NetworkScript.players[1] = [playerName, 1, playerRole]
+		NetworkScript.begin_peer_player_update(NetworkScript.players)
 #	else:
-	NetworkScript.request_change_role()
-	NetworkScript.request_name_change(newName)
-	refresh_list()
+	NetworkScript.request_change_role(playerID)
+	NetworkScript.request_name_change(newName, playerID)
+	refresh_list(null)
