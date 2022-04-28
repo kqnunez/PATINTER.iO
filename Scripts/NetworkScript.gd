@@ -5,16 +5,16 @@ var peer = null
 var player_name=  ""
 
 var host_player_name = ""
-var host_role = ""
+var host_role = 0
 
-puppetsync var players = {}
+var players = {}
 var cur_player_no = 2
 
 var layout = 0  #Determines the layout. 0 means only 2 defenders or layout A, 1 means 3 defenders or layouts B-D
 
 var players_ready = []
 var num_players = 2
-signal refresh_player_list()
+signal refresh_player_list(player_list)
 signal connection_failed()
 signal connection_succeeded()
 
@@ -30,13 +30,13 @@ func _ready():
 
 #Signal events code modified from Godot docs.
 func _player_connected(id):
-	print("Player Connected!")
+	print("Player Connected!" + String(id))
 	rpc_id(id, "add_player", player_name)
 	#emit_signal("refresh_player_list")
 
 func _player_disconnected(id):
 	players.erase(id)
-	emit_signal("refresh_player_list")
+	emit_signal("refresh_player_list", players)
 
 func _connected_ok():
 	print("Connected OK")
@@ -57,38 +57,61 @@ remote func add_player(player_name_input):
 	var player_role = 0
 	var player_info = [player_name_input, cur_player_no, player_role]
 	players[player_id] = player_info
-	emit_signal("refresh_player_list")
+	emit_signal("refresh_player_list", players)
 
-func request_change_role():
+func request_change_role(player_ID):
 	print("Requesting Role Change")
 	#emit_signal("refresh_player_list")
-	rpc("change_player_role")
+	if not get_tree().is_network_server():
+		rpc_id(1,"change_player_role", player_ID)
+	emit_signal("refresh_player_list", players)
 	
-remote func change_player_role():
-	var player_id = get_tree().get_rpc_sender_id()
-	print("Role Change for " + String(player_id))
-	if player_id != 1:
-		var cur_player = players[player_id]
-		if cur_player[2] == 0:
-			cur_player[2] = 1
-		else:
-			cur_player[2] = 0
-	#emit_signal("refresh_player_list")
+remote func change_player_role(player_ID):
+	#var player_id = get_tree().get_rpc_sender_id()
+	print("Role Change for " + String(player_ID))
+	print("Players before role change:")
+	print(players)
+	var cur_player = players[player_ID]
+	if cur_player[2] == 0:
+		cur_player[2] = 1
+	else:
+		cur_player[2] = 0
+	print("Players after role change:")
+	print(players)
+	begin_peer_player_update(players)
+	emit_signal("refresh_player_list", players)
 	
-func request_name_change(name):
+func request_name_change(name, player_ID):
 	print("Requesting Name Change")
 	#emit_signal("refresh_player_list")
-	rpc("change_player_name", name)
+	
+	if not get_tree().is_network_server():
+		#updates Host's players info
+		rpc_id(1,"change_player_name", name, player_ID)
+	#asks host to make peers update their player values.
+	#emit_signal("refresh_player_list", players)
 
-remote func change_player_name(name):
-	var player_id = get_tree().get_rpc_sender_id()
-	print("Name Change for " + String(player_id))
-	if player_id != 1:
-		rset("players[" + String(player_id) + "][0]", name)
-		var cur_player = players[player_id]
-		cur_player[0] = name
-	emit_signal("refresh_player_list")
-
+remote func change_player_name(name, player_ID):
+	#var player_id = get_tree().get_rpc_sender_id()
+	print("Name Change for " + String(player_ID))
+#	if player_ID != 1:
+		#rset("players[" + String(player_id) + "][0]", name)
+	var cur_player = players[player_ID]
+	cur_player[0] = name
+	
+	begin_peer_player_update(players)
+	#emit_signal("refresh_player_list", players)
+	
+func begin_peer_player_update(new_player_list):
+	#Only runs on Host. Goes to all peers and makes them change their player list
+	for player_ID in players:
+		if player_ID != 1:
+			rpc_id(player_ID, "peer_player_update", new_player_list)
+	
+remote func peer_player_update(new_player_list):
+	players = new_player_list
+	emit_signal("refresh_player_list", players)
+	
 	
 func host_game(player_name_input):
 	print("Host Game")
@@ -96,11 +119,14 @@ func host_game(player_name_input):
 	peer = NetworkedMultiplayerENet.new()
 	peer.create_server(DEFAULT_PORT, num_players)
 	get_tree().set_network_peer(peer)
+	
+	players[1] = ["", 1, 0]
+	# on host, populate players with default values for host.
 #	peer = WebSocketServer.new()
 #	peer.listen(DEFAULT_PORT, PoolStringArray(["test"]), true)
 #	get_tree().set_network_peer(peer)
 		
-	
+
 func join_game(ip, player_name_input):
 	player_name = player_name_input
 	peer = NetworkedMultiplayerENet.new()
@@ -113,7 +139,7 @@ func join_game(ip, player_name_input):
 func get_player_list():
 	return players.values()
 
-func begin_game():
+func begin_game(gameLayout):
 	if get_tree().is_network_server():
 		var spawns = {}
 		spawns[1] = 1 #host always player 1
@@ -125,15 +151,18 @@ func begin_game():
 		#We have to make sure that the spawn points are filled for all players before we go rpc.
 		#We also make it so that each peer gets a copy of the latest players dict from the host.
 		for player in players:
-			rpc_id(player, "prep_game", spawns, players)
+			if player != 1:
+				rpc_id(player, "prep_game", spawns, players, gameLayout)
 		
-		prep_game(spawns, players)
+		prep_game(spawns, players, gameLayout)
 	else:
 		print("ERROR in begin_game")
 
-remote func prep_game(spawns, host_players):
+remote func prep_game(spawns, host_players, layout):
 	get_tree().set_pause(true)
 	var game = load("res://PlayGameUI.tscn").instance()
+	game.playAreaLayout = layout
+	
 	get_tree().get_root().add_child(game)
 	#get_tree().get_root().remove_child(oldScene)
 	get_tree().set_current_scene(game)
@@ -196,6 +225,7 @@ remote func prep_game(spawns, host_players):
 		post_prep_game()
 		
 remote func post_prep_game():
+	print("Post game reached")
 	get_tree().set_pause(false)
 
 remote func peer_is_ready(player_ID):
@@ -203,6 +233,8 @@ remote func peer_is_ready(player_ID):
 	if get_tree().is_network_server():
 		if not(player_ID in players_ready):
 			players_ready.append(player_ID)
+		if not(1 in players_ready):
+			players_ready.append(1)
 		if players_ready.size() == players.size():
 			for player in players:
 				rpc_id(player, "post_prep_game")
