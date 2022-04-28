@@ -75,15 +75,16 @@ func _physics_process(_delta):
 	get_input()
 	
 	var collision = move_and_collide(player_velocity*_delta)
-	if collision:
+	if collision and "playerRole" in collision.collider: #If player bumped with another player:
 		var other_player_role = collision.collider.playerRole
-		if other_player_role == playerRole:
+		if other_player_role == playerRole or (other_player_role < 4 and playerRole < 4): #If both runners/both defenders, do nothing
 			pass
 		elif other_player_role < 4 and playerRole == 4:
 			rpc("remove_player")
 	
-puppet func remove_player():
-	pass
+remotesync func remove_player():
+	self.set_physics_process(false)
+	self.hide() #pass
 
 func set_player_name(name):
 	$Name.text = name
