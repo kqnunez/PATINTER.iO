@@ -12,17 +12,17 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "GameHistory",
 "language": "GDScript",
-"path": "res://GameHistory.gd"
+"path": "res://Scripts/GameHistory.gd"
 }, {
 "base": "Resource",
 "class": "PlayerHistory",
 "language": "GDScript",
-"path": "res://PlayerHistory.gd"
+"path": "res://Scripts/Player/PlayerHistory.gd"
 }, {
 "base": "Resource",
 "class": "SaveLoadGame",
 "language": "GDScript",
-"path": "res://SaveLoadGame.gd"
+"path": "res://Scripts/SaveLoadGame.gd"
 } ]
 _global_script_class_icons={
 "GameHistory": "",
@@ -39,6 +39,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Scene_Manager="*res://Scene_Manager.gd"
+NetworkScript="*res://Scripts/NetworkScript.gd"
 
 [display]
 
@@ -54,6 +55,10 @@ ui_alt={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777240,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[network]
+
+limits/tcp/connect_timeout_seconds=10
 
 [physics]
 

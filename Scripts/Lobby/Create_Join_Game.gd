@@ -1,34 +1,64 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var playerNo := 2
 var playAreaLayout := 0
 var playAreaCurrent := 1
 var playerName := "Pat Interio"
-var lobbyName := "Pat's Lobby"
+var lobbyName := "Room Interio"
+
+#Network Stuff
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$lobby_details_popup/lobby_popup_center/lobby_size_input/set_play_area/play_area_preview.set_texture(load("res://Assets/playArea01.png"))
-	$lobby_details_popup/lobby_popup_center/lobby_size_input/set_play_area/left_space/play_area_prev.hide()
-	$lobby_details_popup/lobby_popup_center/lobby_size_input/player_no_input/less_occupy/less.hide()
+	#$lobby_details_popup/lobby_popup_center/lobby_size_input/set_play_area/left_space/play_area_prev.hide()
+	#$lobby_details_popup/lobby_popup_center/lobby_size_input/player_no_input/less_occupy/less.hide()
+	
+	NetworkScript.connect("connection_failed", self, "_on_connection_failed")
+	NetworkScript.connect("connection_succeeded", self, "_on_connection_success")
 	pass 
+
+###
+###	NETWORKING CODE
+###
+	
+func _on_connection_failed():
+	print("Connection Failed!")
+	
+func _on_connection_success():
+	print("Connection Success!")
+	
+
+###
+###	LOBBY CODE
+###
 
 func _on_back_pressed():
 	get_tree().change_scene("res://Start_Exit_Game_UI.tscn")
 	
 func _on_join_lobby_pressed():
-	$bad_lobby.popup_centered()
-	
-func _on_create_lobby1_pressed():
-	if save_player_name() and save_lobby_name():
+	#$bad_lobby.popup_centered()
+	var ip = $"center_menu/menu_buttons/lobby_addr_input".text
+	if not ip.is_valid_ip_address():
+		print("Invalid IP")
+		return
+	if save_player_name():
+		NetworkScript.join_game(ip, playerName)
+		#$lobby_details_popup.popup()
+		Scene_Manager.passPlayerNoLayout(self, "res://Player_Lobby.tscn")
+		
+func _on_create_lobby_pressed():
+	if save_player_name() and save_lobby_addr():
 		$lobby_details_popup.popup()
 	
-func _on_create_lobby2_pressed():
+		
+	
+func _on_create_game_pressed():
 	playAreaLayout = playAreaCurrent
+	NetworkScript.num_players = playerNo
+	NetworkScript.host_game(playerName)
+	NetworkScript.layout = playAreaLayout
 	Scene_Manager.passPlayerNoLayout(self, "res://Player_Lobby.tscn")
 	
 func _on_play_area_next_pressed():
@@ -77,7 +107,7 @@ func save_player_name():
 						return 0
 	return 1
 	
-func save_lobby_name():
+func save_lobby_addr():
 	lobbyName = $center_menu/menu_buttons/lobby_name_input.get_text()
 	if lobbyName == "":
 		$name_popups/no_name_alert.popup_centered()
