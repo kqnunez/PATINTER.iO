@@ -18,7 +18,7 @@ func _ready():
 	$centerTitle/lobbyName.set_text(lobbyName)
 	$centerMenu/menuButtons/roleSelect/inputControls/playerNameInput.set_text(playerName)
 	
-
+	print("Lobby Layout", playAreaLayout)
 	
 	#Hide extra labels
 	if get_tree().is_network_server():
@@ -54,7 +54,6 @@ func refresh_list(playerlist):
 		if (get_tree().is_network_server() and player_info[1] == 1):
 			continue
 		if (playerID in NetworkScript.players and NetworkScript.players[playerID][1] == player_info[1] and not get_tree().is_network_server()):
-			print("taken")
 			continue
 		if player_info[2] == 1:
 			#print("ROLE WORD HAS CHANGED")

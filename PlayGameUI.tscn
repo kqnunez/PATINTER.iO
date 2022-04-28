@@ -104,6 +104,7 @@ __meta__ = {
 }
 
 [node name="RunnerWinScreen" type="Label" parent="GameOverScreen"]
+visible = false
 margin_right = 543.0
 margin_bottom = 243.0
 theme = ExtResource( 7 )
@@ -114,11 +115,20 @@ __meta__ = {
 }
 
 [node name="TimeoutScreen" type="Label" parent="GameOverScreen"]
+visible = false
 margin_right = 223.0
 margin_bottom = 67.0
 theme = ExtResource( 7 )
 text = "Game Over!
 Timer Ran Out!"
+
+[node name="DefenderWinScreen" type="Label" parent="GameOverScreen"]
+visible = false
+margin_right = 223.0
+margin_bottom = 67.0
+theme = ExtResource( 7 )
+text = "Game Over!
+Defenders Win!"
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 539, 92 )

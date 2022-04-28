@@ -120,7 +120,7 @@ func host_game(player_name_input):
 	peer.create_server(DEFAULT_PORT, num_players)
 	get_tree().set_network_peer(peer)
 	
-	players[1] = ["", 1, 0]
+	players[1] = ["Pat Interio", 1, 0]
 	# on host, populate players with default values for host.
 #	peer = WebSocketServer.new()
 #	peer.listen(DEFAULT_PORT, PoolStringArray(["test"]), true)
@@ -174,19 +174,19 @@ remote func prep_game(spawns, host_players, layout):
 	var player_instance = load("res://Player.tscn")
 	for player_ID in spawns:
 		var player_role = 0
-		if player_ID != 1:
-			player_role = players[player_ID][2]
-		else:
-			player_role = host_role
+		player_role = players[player_ID][2]
+			
 		var spawn_pos
 		
 		player_role = int(player_role)
+		
+		print("Layout", layout)		
 		
 		if player_role == 0:
 			spawn_pos = game.get_node("SpawnPointsRunner/" + str(spawns[player_ID])).position
 		else:
 			#if defender, we have to make sure our defenders spawn at the right places depending on the layout.
-			if layout == 0:
+			if layout == 1:
 				spawn_pos = game.get_node("SpawnPointsDefender/LayoutA/" + str(spawns[player_ID]%2 +1)).position
 			else:
 				spawn_pos = game.get_node("SpawnPointsDefender/LayoutB/" + str(spawns[player_ID]%3 +1)).position
@@ -209,8 +209,10 @@ remote func prep_game(spawns, host_players, layout):
 		if player_role == 1:
 			spawned_player.playerRole = 1 #horizontal movement allowed.
 			spawned_player._set_layers(5)
-			if layout == 1 and spawns[player_ID]%3 +1 == 3:
-				spawned_player.playerRole = 3 #Special case. Both movement allowed.
+			if layout != 1 and spawns[player_ID]%3 +1 == 3:
+				spawned_player.playerRole = 2 #Special case. Both movement allowed.
+				if layout == 3:
+					spawned_player.playerRole = 3
 		else:
 			spawned_player._set_layers(3)
 		
@@ -237,7 +239,8 @@ remote func peer_is_ready(player_ID):
 			players_ready.append(1)
 		if players_ready.size() == players.size():
 			for player in players:
-				rpc_id(player, "post_prep_game")
+				if player != 1:
+					rpc_id(player, "post_prep_game")
 			post_prep_game()
 	else:
 		print("ERROR in peer_ready")
