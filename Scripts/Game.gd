@@ -77,9 +77,9 @@ func showGameOverScreen(screenType):
 	if not gameOverFlag:
 		$GameOverScreen.show();
 		if screenType == 1:
-			$GameOverScreen/RunnerScreen.show();
+			$GameOverScreen/RunnerWinScreen.show();
 		elif screenType == 2:
-			$GameOverScreen/TimeoutWinScreen.show();
+			$GameOverScreen/TimeoutScreen.show();
 		elif screenType == 3:
 			$GameOverScreen/DefenderWinScreen.show();
 		#Make sure to replace this with a for loop
