@@ -18,6 +18,7 @@ signal refresh_player_list(player_list)
 signal connection_failed()
 signal connection_succeeded()
 
+signal show_game_over(type)
 #Lobby Management Stuff
 #As per docs, first five signals are called automatically on the server as player connect/disconnect happens.
 func _ready():
@@ -200,10 +201,8 @@ remote func prep_game(spawns, host_players, layout):
 		
 		
 		#Set spawned player name.
-		if player_ID != 1:
-			spawned_player.set_player_name(players[player_ID][0])
-		else:
-			spawned_player.set_player_name(host_player_name)
+
+		spawned_player.set_player_name(players[player_ID][0])
 			
 		#Assign player roles for each spawned player. Values are explained in Player.gd
 		if player_role == 1:
@@ -244,4 +243,10 @@ remote func peer_is_ready(player_ID):
 			post_prep_game()
 	else:
 		print("ERROR in peer_ready")
-			
+
+func request_show_game_over(type):
+	for player in players:
+		if (player != get_tree().get_network_unique_id()):
+			rpc_id(player, "call_game_over", type)
+remote func call_game_over(type):
+	emit_signal("show_game_over", type)
