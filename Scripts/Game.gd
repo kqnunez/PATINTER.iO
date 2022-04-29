@@ -14,6 +14,9 @@ var time
 var gameOverFlag = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	NetworkScript.connect("show_game_over", self, "showGameOverScreen")
+	
 	var dt = OS.get_datetime()
 	self.date = [dt["month"], dt["day"], dt["year"]]
 	self.time = [dt["hour"], dt["minute"]]
@@ -43,6 +46,7 @@ func _process(delta):
 	pass
 	
 func _on_ExitButton_pressed():
+	#get_tree().set_pause(false)
 	var playerHistory = PlayerHistory.new()
 	var gameHistory = GameHistory.new()
 	var saveLoadGame = SaveLoadGame.new()
@@ -74,16 +78,18 @@ func _on_timeout():
 	showGameOverScreen(2)
 
 func showGameOverScreen(screenType):
-	if not gameOverFlag:
-		$GameOverScreen.show();
-		if screenType == 1:
-			$GameOverScreen/RunnerWinScreen.show();
-		elif screenType == 2:
-			$GameOverScreen/TimeoutScreen.show();
-		elif screenType == 3:
-			$GameOverScreen/DefenderWinScreen.show();
-		#Make sure to replace this with a for loop
+	$GameOverScreen.show();
+	if screenType == 1:
+		$GameOverScreen/RunnerWinScreen.show();
+	elif screenType == 2:
+		$GameOverScreen/TimeoutScreen.show();
+	elif screenType == 3:
+		$GameOverScreen/DefenderWinScreen.show();
+	#Make sure to replace this with a for loop
 #		$Player.isGameOver = true
-		get_tree().set_pause(true)
-		$TimeLeftLabel.timerEnabled = false
+	#get_tree().set_pause(true)
+	var player_entities = $Players.get_children()
+	for entity in player_entities:
+		entity.isGameOver = true
+	$TimeLeftLabel.timerEnabled = false
 	

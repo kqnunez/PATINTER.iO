@@ -78,6 +78,7 @@ func _physics_process(_delta):
 	if collision and "playerRole" in collision.collider: #If player bumped with another player:
 		var other_player_role = collision.collider.playerRole
 		if other_player_role == playerRole or (other_player_role < 4 and playerRole < 4): #If both runners/both defenders, do nothing
+			print("OTHER ROLE STUFF")
 			pass
 		elif other_player_role < 4 and playerRole == 4:
 			rpc("remove_player", self)
@@ -86,8 +87,10 @@ func _physics_process(_delta):
 			get_node("/root/Game").showGameOverScreen(3)
 	
 remotesync func remove_player(player_to_hide):
+	print("removing", get_tree().get_network_unique_id())
 	self.set_physics_process(false)
 	self.hide() #pass
+	NetworkScript.request_show_game_over(3)
 
 func set_player_name(name):
 	$Name.text = name
