@@ -65,14 +65,14 @@ size_flags_vertical = 3
 theme = ExtResource( 3 )
 text = "Start"
 
-[node name="options_button" type="Button" parent="center_menu/menu_buttons"]
+[node name="credits_button" type="Button" parent="center_menu/menu_buttons"]
 margin_top = 60.0
 margin_right = 200.0
 margin_bottom = 110.0
 rect_min_size = Vector2( 200, 50 )
 size_flags_vertical = 3
 theme = ExtResource( 3 )
-text = "Options"
+text = "Credits"
 
 [node name="exit_button" type="Button" parent="center_menu/menu_buttons"]
 margin_top = 120.0
@@ -84,4 +84,5 @@ theme = ExtResource( 3 )
 text = "Exit"
 
 [connection signal="pressed" from="center_menu/menu_buttons/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="center_menu/menu_buttons/credits_button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="center_menu/menu_buttons/exit_button" to="." method="_on_exit_button_pressed"]
