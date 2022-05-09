@@ -49,12 +49,16 @@ func refresh_list(playerlist):
 		$centerMenu/menuButtons/roleSelect/inputControls/roleSelectInput.set_text("DEFENDER")
 		$playerListLeft.add_item(playerName + " DEFENDER(You)")
 	
+	var player_list_dict = NetworkScript.players
 	#update other players in list.
-	for player_info in player_list:
-		if (get_tree().is_network_server() and player_info[1] == 1):
+	for player_network_id in player_list_dict:
+		var player_info = player_list_dict[player_network_id]
+		if player_network_id == get_tree().get_network_unique_id():
 			continue
-		if (playerID in NetworkScript.players and NetworkScript.players[playerID][1] == player_info[1] and not get_tree().is_network_server()):
-			continue
+#		if (get_tree().is_network_server() and player_info[1] == 1):
+#			continue
+#		if (playerID in NetworkScript.players and NetworkScript.players[playerID][1] == player_info[1] and not get_tree().is_network_server()):
+#			continue
 		if player_info[2] == 1:
 			#print("ROLE WORD HAS CHANGED")
 			role = " DEFENDER"
