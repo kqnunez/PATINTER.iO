@@ -37,6 +37,8 @@ func _player_connected(id):
 
 func _player_disconnected(id):
 	players.erase(id)
+	print("PLAYER DISCONNECTED")
+	print("NEW:", players)
 	emit_signal("refresh_player_list", players)
 
 func _connected_ok():
@@ -50,6 +52,15 @@ func _connected_fail():
 	
 func _server_disconnected():
 	print("Server Has Disconnected")
+
+func request_disconnect():
+	if not get_tree().is_network_server():
+		var id = get_tree().get_network_unique_id()
+		rpc_id(1, "player_disconnect", id)
+	
+
+remote func player_disconnect(id):
+	peer.disconnect_peer(id)
 
 remote func add_player(player_name_input):
 	var player_id = get_tree().get_rpc_sender_id()
