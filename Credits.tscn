@@ -22,9 +22,9 @@ __meta__ = {
 
 [node name="menu_buttons" type="VBoxContainer" parent="center_menu"]
 margin_left = 372.0
-margin_top = 203.0
+margin_top = 252.0
 margin_right = 1160.0
-margin_bottom = 485.0
+margin_bottom = 436.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
@@ -33,39 +33,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="center_logo" type="CenterContainer" parent="center_menu/menu_buttons"]
-margin_right = 788.0
-margin_bottom = 88.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="logo" type="TextureRect" parent="center_menu/menu_buttons/center_logo"]
-margin_left = 123.0
-margin_right = 665.0
-margin_bottom = 88.0
-rect_min_size = Vector2( 542, 88 )
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="CreatedBy" type="Label" parent="center_menu/menu_buttons"]
-margin_top = 98.0
 margin_right = 788.0
-margin_bottom = 135.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0.529412, 0.803922, 0.870588, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Created By"
 align = 1
 
 [node name="Names" type="Label" parent="center_menu/menu_buttons"]
-margin_top = 145.0
+margin_top = 47.0
 margin_right = 788.0
-margin_bottom = 222.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+margin_bottom = 124.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "NUNEZ - PAGDANGANAN - VASQUEZ - YNIESTA
 CS 191 WFX GROUP 1"
@@ -73,14 +53,38 @@ align = 1
 
 [node name="back_button" type="Button" parent="center_menu/menu_buttons"]
 margin_left = 294.0
-margin_top = 232.0
+margin_top = 134.0
 margin_right = 494.0
-margin_bottom = 282.0
+margin_bottom = 184.0
 rect_min_size = Vector2( 200, 50 )
 size_flags_horizontal = 4
 size_flags_vertical = 3
 theme = ExtResource( 2 )
-text = "Back"
+text = "back"
 script = ExtResource( 1 )
+
+[node name="center_logo" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.4
+margin_left = -271.0
+margin_right = 271.0
+margin_bottom = 88.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="TextureRect" parent="center_logo"]
+margin_top = 86.0
+margin_right = 542.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 542, 88 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="pressed" from="center_menu/menu_buttons/back_button" to="center_menu/menu_buttons/back_button" method="_on_back_button_pressed"]

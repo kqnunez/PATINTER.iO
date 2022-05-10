@@ -20,8 +20,8 @@ func _ready():
 	var dt = OS.get_datetime()
 	self.date = [dt["month"], dt["day"], dt["year"]]
 	self.time = [dt["hour"], dt["minute"]]
-	$DefenderBorder/CollisionShape2D/GameArea.set_texture(load("res://Assets/PlayArea%s.png" % (String(playAreaLayout)))) # Replace with function body.
-	$TimeLeftLabel.connect("timeout", self, "_on_timeout")
+	$Map.set_texture(load("res://Assets/playArea0%s.png" % (String(playAreaLayout)))) # Replace with function body.
+	$GameDock/TimeExit/TimeLeftLabel.connect("timeout", self, "_on_timeout")
 	#Assign player role and name
 	#Adjust this part to handle multiple players
 #	if playerRole == 0:
@@ -44,8 +44,34 @@ func _ready():
 
 func _process(delta):
 	pass
+
+func _on_Area2D_body_entered(body):
+	if body.playerRole == 4:
+		showGameOverScreen(1)
+
+func _on_timeout():
+	showGameOverScreen(2)
+
+func showGameOverScreen(screenType):
+	$GameOverScreen.show();
+	$GameOverScreen/GameOverText.show();
+	if screenType == 1:
+		$GameOverScreen/GameOverText/RunnerWinScreen.show();
+	elif screenType == 2:
+		$GameOverScreen/GameOverText/TimeoutScreen.show();
+	elif screenType == 3:
+		$GameOverScreen/GameOverText/DefenderWinScreen.show();
+	#Make sure to replace this with a for loop
+#		$Player.isGameOver = true
+	#get_tree().set_pause(true)
+	var player_entities = $Players.get_children()
+	for entity in player_entities:
+		entity.isGameOver = true
+	$GameDock/TimeExit/TimeLeftLabel.timerEnabled = false
 	
-func _on_ExitButton_pressed():
+
+
+func _on_Exit_pressed():
 	#get_tree().set_pause(false)
 	var playerHistory = PlayerHistory.new()
 	var gameHistory = GameHistory.new()
@@ -68,28 +94,3 @@ func _on_ExitButton_pressed():
 	saveLoadGame.data = gameHistory.getData()
 	saveLoadGame.saveData("game")
 	get_tree().quit()
-
-
-func _on_Area2D_body_entered(body):
-	if body.playerRole == 4:
-		showGameOverScreen(1)
-
-func _on_timeout():
-	showGameOverScreen(2)
-
-func showGameOverScreen(screenType):
-	$GameOverScreen.show();
-	if screenType == 1:
-		$GameOverScreen/RunnerWinScreen.show();
-	elif screenType == 2:
-		$GameOverScreen/TimeoutScreen.show();
-	elif screenType == 3:
-		$GameOverScreen/DefenderWinScreen.show();
-	#Make sure to replace this with a for loop
-#		$Player.isGameOver = true
-	#get_tree().set_pause(true)
-	var player_entities = $Players.get_children()
-	for entity in player_entities:
-		entity.isGameOver = true
-	$TimeLeftLabel.timerEnabled = false
-	

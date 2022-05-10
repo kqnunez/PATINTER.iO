@@ -37,8 +37,6 @@ func _player_connected(id):
 
 func _player_disconnected(id):
 	players.erase(id)
-	print("PLAYER DISCONNECTED")
-	print("NEW:", players)
 	emit_signal("refresh_player_list", players)
 
 func _connected_ok():
@@ -52,15 +50,6 @@ func _connected_fail():
 	
 func _server_disconnected():
 	print("Server Has Disconnected")
-
-func request_disconnect():
-	if not get_tree().is_network_server():
-		var id = get_tree().get_network_unique_id()
-		rpc_id(1, "player_disconnect", id)
-	
-
-remote func player_disconnect(id):
-	peer.disconnect_peer(id)
 
 remote func add_player(player_name_input):
 	var player_id = get_tree().get_rpc_sender_id()
@@ -91,7 +80,7 @@ remote func change_player_role(player_ID):
 	print("Players after role change:")
 	print(players)
 	begin_peer_player_update(players)
-	#emit_signal("refresh_player_list", players)
+	emit_signal("refresh_player_list", players)
 	
 func request_name_change(name, player_ID):
 	print("Requesting Name Change")
@@ -101,7 +90,7 @@ func request_name_change(name, player_ID):
 		#updates Host's players info
 		rpc_id(1,"change_player_name", name, player_ID)
 	#asks host to make peers update their player values.
-	emit_signal("refresh_player_list", players)
+	#emit_signal("refresh_player_list", players)
 
 remote func change_player_name(name, player_ID):
 	#var player_id = get_tree().get_rpc_sender_id()
@@ -112,7 +101,7 @@ remote func change_player_name(name, player_ID):
 	cur_player[0] = name
 	
 	begin_peer_player_update(players)
-	emit_signal("refresh_player_list", players)
+	#emit_signal("refresh_player_list", players)
 	
 func begin_peer_player_update(new_player_list):
 	#Only runs on Host. Goes to all peers and makes them change their player list
@@ -220,9 +209,9 @@ remote func prep_game(spawns, host_players, layout):
 			spawned_player.playerRole = 1 #horizontal movement allowed.
 			spawned_player._set_layers(5)
 			if layout != 1 and spawns[player_ID]%3 +1 == 3:
-				spawned_player.playerRole = 2 
+				spawned_player.playerRole = 2 #Special case. Both movement allowed.
 				if layout == 3:
-					spawned_player.playerRole = 3 #Special case. Both movement allowed.
+					spawned_player.playerRole = 3
 		else:
 			spawned_player._set_layers(3)
 		
