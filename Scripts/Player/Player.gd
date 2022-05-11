@@ -20,7 +20,7 @@ var isGameOver = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	set_safe_margin(0.3) # Replace with function body. #Minimizes jittering
-	get_node("Stamina").set_text(str(stamina))
+	get_node("/root/Game/GameDock/Stamina/StamCenter/InstrList/StamNumber").set_text(str(stamina))
 
 #Arrow keys to run
 #Based on: http://kidscancode.org/godot_recipes/2d/topdown_movement/
@@ -52,8 +52,8 @@ func get_input():
 			#When sprinting, only decrease stamina if player actually moved (prevents stamina wastage when running against wall)
 			if velocity != Vector2.ZERO and Input.is_action_pressed('ui_alt'):
 				stamina -= 1
-				get_node("Stamina").set_text(str(stamina))
-				get_node("/root/Game/StaminaLabel").set_text(str(stamina))
+				get_node("/root/Game/GameDock/Stamina/StamCenter/InstrList/StamNumber").set_text(str(player_stamina))
+				get_node("/root/Game/GameDock/Stamina/StamCenter/InstrList/StamNumber").set_text(str(player_stamina))
 				
 			rset("player_position", position)
 			rset("player_velocity", velocity)
@@ -83,8 +83,6 @@ func _physics_process(_delta):
 		elif other_player_role < 4 and playerRole == 4:
 			rpc("remove_player", self)
 			get_node("/root/Game").showGameOverScreen(3)
-			
-			#print("[TAG] Collision of", playerName, "and", collision.collider.playerName)
 		else:
 			get_node("/root/Game").showGameOverScreen(3)
 	

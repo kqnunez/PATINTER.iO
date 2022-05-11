@@ -1,12 +1,65 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=29 format=2]
 
+[ext_resource path="res://Assets/styles/patinteriowindow.tres" type="Theme" id=1]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=2]
-[ext_resource path="res://Assets/PlayArea3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/styles/AnjaElianeaccent002.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/ExitButton.png" type="Texture" id=5]
 [ext_resource path="res://Assets/ExitButton_Dark.png" type="Texture" id=6]
 [ext_resource path="res://Assets/styles/game_over_ph.tres" type="Theme" id=7]
 [ext_resource path="res://Assets/styles/TimerLabel.tres" type="Theme" id=8]
 [ext_resource path="res://Scripts/TimeLeftLabel.gd" type="Script" id=9]
+[ext_resource path="res://Assets/styles/patinteriodock.tres" type="Theme" id=10]
+[ext_resource path="res://Assets/styles/patinterio.tres" type="Theme" id=11]
+[ext_resource path="res://Assets/styles/Montserrat-Medium.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://Assets/styles_and_fonts/Montserrat-Medium.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Assets/AnjaElianeaccent002.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Assets/playArea01.png" type="Texture" id=15]
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.529412, 0.803922, 0.870588, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=10]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 60
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 20
+font_data = ExtResource( 13 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 1, 0.8, 0, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 1, 0.4, 0, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=13]
+size = 20
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 30
+outline_color = Color( 0.172549, 0.172549, 0.627451, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 50
+font_data = ExtResource( 3 )
 
 [sub_resource type="Theme" id=2]
 HSeparator/constants/separation = 4
@@ -40,6 +93,392 @@ extents = Vector2( 425.5, 10 )
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="Map" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 80.0
+margin_top = 150.0
+margin_right = 940.0
+margin_bottom = 700.0
+texture = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameDock" type="VBoxContainer" parent="."]
+margin_left = 991.0
+margin_top = 41.0
+margin_right = 1491.0
+margin_bottom = 798.0
+rect_min_size = Vector2( 500, 750 )
+custom_constants/separation = 15
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerList" type="HBoxContainer" parent="GameDock"]
+margin_right = 500.0
+margin_bottom = 490.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="Defenders" type="Panel" parent="GameDock/PlayerList"]
+margin_right = 245.0
+margin_bottom = 490.0
+rect_min_size = Vector2( 40, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 10 )
+custom_styles/panel = SubResource( 9 )
+
+[node name="DefList" type="VBoxContainer" parent="GameDock/PlayerList/Defenders"]
+margin_left = 66.0
+margin_top = 8.0
+margin_right = 179.0
+margin_bottom = 482.0
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Def" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+margin_right = 113.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0.172549, 0.172549, 0.627451, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "DEFENDERS"
+align = 1
+
+[node name="DefScore" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+margin_top = 23.0
+margin_right = 113.0
+margin_bottom = 89.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "0"
+align = 1
+
+[node name="Def1" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+margin_top = 89.0
+margin_right = 113.0
+margin_bottom = 144.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Def2" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+margin_top = 144.0
+margin_right = 113.0
+margin_bottom = 199.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Def3" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+margin_top = 199.0
+margin_right = 113.0
+margin_bottom = 254.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Def4" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+margin_top = 254.0
+margin_right = 113.0
+margin_bottom = 309.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Def5" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+margin_top = 309.0
+margin_right = 113.0
+margin_bottom = 364.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Def6" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+margin_top = 364.0
+margin_right = 113.0
+margin_bottom = 419.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Def7" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+margin_top = 419.0
+margin_right = 113.0
+margin_bottom = 474.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Runners" type="Panel" parent="GameDock/PlayerList"]
+margin_left = 255.0
+margin_right = 500.0
+margin_bottom = 490.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 10 )
+custom_styles/panel = SubResource( 11 )
+
+[node name="RunList" type="VBoxContainer" parent="GameDock/PlayerList/Runners"]
+margin_left = 66.0
+margin_top = 8.0
+margin_right = 179.0
+margin_bottom = 482.0
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Run" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+margin_right = 113.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0.172549, 0.172549, 0.627451, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "RUNNERS"
+align = 1
+
+[node name="RunScore" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+margin_top = 23.0
+margin_right = 113.0
+margin_bottom = 89.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 16 )
+text = "0"
+align = 1
+
+[node name="Run1" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+margin_top = 89.0
+margin_right = 113.0
+margin_bottom = 144.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Run2" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+margin_top = 144.0
+margin_right = 113.0
+margin_bottom = 199.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Run3" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+margin_top = 199.0
+margin_right = 113.0
+margin_bottom = 254.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Run4" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+margin_top = 254.0
+margin_right = 113.0
+margin_bottom = 309.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Run5" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+margin_top = 309.0
+margin_right = 113.0
+margin_bottom = 364.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Run6" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+margin_top = 364.0
+margin_right = 113.0
+margin_bottom = 419.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Run7" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+margin_top = 419.0
+margin_right = 113.0
+margin_bottom = 474.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stamina" type="Panel" parent="GameDock"]
+margin_top = 505.0
+margin_right = 500.0
+margin_bottom = 705.0
+rect_min_size = Vector2( 0, 200 )
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 12 )
+
+[node name="StamCenter" type="CenterContainer" parent="GameDock/Stamina"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstrList" type="VBoxContainer" parent="GameDock/Stamina/StamCenter"]
+margin_left = 97.0
+margin_top = 25.0
+margin_right = 402.0
+margin_bottom = 175.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instruction" type="Label" parent="GameDock/Stamina/StamCenter/InstrList"]
+margin_right = 305.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 13 )
+text = "ARROW KEY TO RUN
+ALT + ARROW KEY TO SPRINT"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StamLabel" type="Label" parent="GameDock/Stamina/StamCenter/InstrList"]
+margin_top = 59.0
+margin_right = 305.0
+margin_bottom = 92.0
+custom_colors/font_color = Color( 0.529412, 0.803922, 0.870588, 1 )
+custom_fonts/font = SubResource( 14 )
+text = "STAMINA:"
+align = 1
+
+[node name="StamNumber" type="Label" parent="GameDock/Stamina/StamCenter/InstrList"]
+margin_top = 96.0
+margin_right = 305.0
+margin_bottom = 150.0
+custom_colors/font_color = Color( 1, 0.8, 0, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "100"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeExit" type="HBoxContainer" parent="GameDock"]
+margin_top = 720.0
+margin_right = 500.0
+margin_bottom = 757.0
+
+[node name="TimeLeftLabel" type="Label" parent="GameDock/TimeExit"]
+margin_right = 300.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 3
+theme = ExtResource( 8 )
+custom_colors/font_color = Color( 0.172549, 0.172549, 0.627451, 1 )
+text = "Time Left:"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Label" parent="GameDock/TimeExit/TimeLeftLabel"]
+margin_left = 169.0
+margin_top = 1.0
+margin_right = 238.0
+margin_bottom = 38.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+text = "NULL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="GameDock/TimeExit"]
+margin_left = 304.0
+margin_right = 500.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 11 )
+text = "exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="DefenderBorder" type="StaticBody2D" parent="."]
 collision_layer = 4
 collision_mask = 0
@@ -52,7 +491,6 @@ polygon = PoolVector2Array( -410, -130, -410, 413, 440, 413, 440, -130 )
 [node name="GameArea" type="Sprite" parent="DefenderBorder/CollisionShape2D"]
 position = Vector2( -494, -285.5 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
 centered = false
 
 [node name="ExitButton" type="Button" parent="DefenderBorder/CollisionShape2D/GameArea"]
@@ -83,52 +521,60 @@ position = Vector2( 494, 286.5 )
 build_mode = 1
 polygon = PoolVector2Array( -410, -250, -410, 520, 440, 520, 440, -250 )
 
-[node name="StaminaLabel" type="Label" parent="."]
-margin_left = 1327.0
-margin_top = 547.0
-margin_right = 1367.0
-margin_bottom = 561.0
-text = "100"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="GameOverScreen" type="Panel" parent="."]
 visible = false
-margin_left = 471.0
-margin_top = 291.0
-margin_right = 1017.0
-margin_bottom = 539.0
+margin_left = 235.0
+margin_top = 305.0
+margin_right = 787.0
+margin_bottom = 553.0
+theme = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RunnerWinScreen" type="Label" parent="GameOverScreen"]
+[node name="GameOverText" type="CenterContainer" parent="GameOverScreen"]
 visible = false
-margin_right = 543.0
-margin_bottom = 243.0
-theme = ExtResource( 7 )
-text = "Game Over!
-Runners Win!"
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TimeoutScreen" type="Label" parent="GameOverScreen"]
+[node name="TimeoutScreen" type="Label" parent="GameOverScreen/GameOverText"]
 visible = false
-margin_right = 223.0
-margin_bottom = 67.0
+margin_left = 156.0
+margin_top = 83.0
+margin_right = 395.0
+margin_bottom = 164.0
 theme = ExtResource( 7 )
 text = "Game Over!
 Timer Ran Out!"
+align = 1
 
-[node name="DefenderWinScreen" type="Label" parent="GameOverScreen"]
+[node name="RunnerWinScreen" type="Label" parent="GameOverScreen/GameOverText"]
 visible = false
-margin_right = 223.0
-margin_bottom = 67.0
+margin_left = 168.0
+margin_top = 83.0
+margin_right = 383.0
+margin_bottom = 164.0
+theme = ExtResource( 7 )
+text = "Game Over!
+Runners Win!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DefenderWinScreen" type="Label" parent="GameOverScreen/GameOverText"]
+visible = false
+margin_left = 153.0
+margin_top = 83.0
+margin_right = 399.0
+margin_bottom = 164.0
 theme = ExtResource( 7 )
 text = "Game Over!
 Defenders Win!"
+align = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 539, 92 )
@@ -137,28 +583,6 @@ position = Vector2( 539, 92 )
 position = Vector2( -28.5, 0 )
 shape = SubResource( 8 )
 one_way_collision = true
-
-[node name="TimeLeftLabel" type="Label" parent="."]
-margin_left = 1059.0
-margin_top = 284.0
-margin_right = 1227.0
-margin_bottom = 321.0
-theme = ExtResource( 8 )
-text = "Time Left:"
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Timer" type="Label" parent="TimeLeftLabel"]
-margin_left = 169.0
-margin_top = 1.0
-margin_right = 238.0
-margin_bottom = 38.0
-text = "NULL"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SpawnPointsRunner" type="Node2D" parent="."]
 position = Vector2( 2, 0 )
@@ -207,5 +631,6 @@ position = Vector2( 510, 435 )
 
 [node name="Players" type="Node2D" parent="."]
 
+[connection signal="pressed" from="GameDock/TimeExit/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="DefenderBorder/CollisionShape2D/GameArea/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

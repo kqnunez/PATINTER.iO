@@ -49,16 +49,12 @@ func refresh_list(playerlist):
 		$centerMenu/menuButtons/roleSelect/inputControls/roleSelectInput.set_text("DEFENDER")
 		$playerListLeft.add_item(playerName + " DEFENDER(You)")
 	
-	var player_list_dict = NetworkScript.players
 	#update other players in list.
-	for player_network_id in player_list_dict:
-		var player_info = player_list_dict[player_network_id]
-		if player_network_id == get_tree().get_network_unique_id():
+	for player_info in player_list:
+		if (get_tree().is_network_server() and player_info[1] == 1):
 			continue
-#		if (get_tree().is_network_server() and player_info[1] == 1):
-#			continue
-#		if (playerID in NetworkScript.players and NetworkScript.players[playerID][1] == player_info[1] and not get_tree().is_network_server()):
-#			continue
+		if (playerID in NetworkScript.players and NetworkScript.players[playerID][1] == player_info[1] and not get_tree().is_network_server()):
+			continue
 		if player_info[2] == 1:
 			#print("ROLE WORD HAS CHANGED")
 			role = " DEFENDER"
@@ -71,14 +67,9 @@ func refresh_list(playerlist):
 			$playerListLeft.add_item(player_info[0] + String(role))
 		#$centerMenu/menuButtons/roleSelect/inputControls/roleSelectInput.set_text(role)
 	
-	if get_tree().is_network_server():
-		NetworkScript.begin_peer_player_update(NetworkScript.players)
 	$centerMenu/menuButtons/startGameButton.disabled = not get_tree().is_network_server()
-	
 
 func _on_back_pressed():
-	#pass
-	NetworkScript.request_disconnect()
 	get_tree().change_scene("res://Create_Join_Game.tscn")
 	
 func _on_startGameButton_pressed():
