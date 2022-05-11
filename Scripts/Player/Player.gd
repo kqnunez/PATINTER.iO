@@ -52,8 +52,8 @@ func get_input():
 			#When sprinting, only decrease stamina if player actually moved (prevents stamina wastage when running against wall)
 			if velocity != Vector2.ZERO and Input.is_action_pressed('ui_alt'):
 				stamina -= 1
-				get_node("/root/Game/GameDock/Stamina/StamCenter/InstrList/StamNumber").set_text(str(player_stamina))
-				get_node("/root/Game/GameDock/Stamina/StamCenter/InstrList/StamNumber").set_text(str(player_stamina))
+				get_node("/root/Game/GameDock/Stamina/StamCenter/InstrList/StamNumber").set_text(str(stamina))
+				get_node("/root/Game/GameDock/Stamina/StamCenter/InstrList/StamNumber").set_text(str(stamina))
 				
 			rset("player_position", position)
 			rset("player_velocity", velocity)
