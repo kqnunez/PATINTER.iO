@@ -146,62 +146,25 @@ __meta__ = {
 }
 
 [node name="Def" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+margin_top = 192.0
 margin_right = 113.0
-margin_bottom = 23.0
+margin_bottom = 215.0
 custom_colors/font_color = Color( 0.172549, 0.172549, 0.627451, 1 )
 custom_fonts/font = SubResource( 10 )
 text = "DEFENDERS"
 align = 1
 
 [node name="DefScore" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
-margin_top = 23.0
+margin_top = 215.0
 margin_right = 113.0
-margin_bottom = 89.0
+margin_bottom = 281.0
 custom_colors/font_color = Color( 1, 0.4, 0, 1 )
 custom_fonts/font = SubResource( 16 )
 text = "0"
 align = 1
 
 [node name="Def1" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
-margin_top = 89.0
-margin_right = 113.0
-margin_bottom = 144.0
-custom_colors/font_color = Color( 1, 0.4, 0, 1 )
-custom_fonts/font = SubResource( 17 )
-text = "Pat Interio
-"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Def2" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
-margin_top = 144.0
-margin_right = 113.0
-margin_bottom = 199.0
-custom_colors/font_color = Color( 1, 0.4, 0, 1 )
-custom_fonts/font = SubResource( 17 )
-text = "Pat Interio
-"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Def3" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
-margin_top = 199.0
-margin_right = 113.0
-margin_bottom = 254.0
-custom_colors/font_color = Color( 1, 0.4, 0, 1 )
-custom_fonts/font = SubResource( 17 )
-text = "Pat Interio
-"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Def4" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+visible = false
 margin_top = 254.0
 margin_right = 113.0
 margin_bottom = 309.0
@@ -214,7 +177,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Def5" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+[node name="Def2" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+visible = false
+margin_top = 281.0
+margin_right = 113.0
+margin_bottom = 336.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Def3" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+visible = false
 margin_top = 309.0
 margin_right = 113.0
 margin_bottom = 364.0
@@ -227,7 +205,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Def6" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+[node name="Def4" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+visible = false
+margin_top = 336.0
+margin_right = 113.0
+margin_bottom = 391.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Def5" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+visible = false
 margin_top = 364.0
 margin_right = 113.0
 margin_bottom = 419.0
@@ -240,7 +233,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Def6" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+visible = false
+margin_top = 391.0
+margin_right = 113.0
+margin_bottom = 446.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Def7" type="Label" parent="GameDock/PlayerList/Defenders/DefList"]
+visible = false
 margin_top = 419.0
 margin_right = 113.0
 margin_bottom = 474.0
@@ -274,23 +282,25 @@ __meta__ = {
 }
 
 [node name="Run" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+margin_top = 192.0
 margin_right = 113.0
-margin_bottom = 23.0
+margin_bottom = 215.0
 custom_colors/font_color = Color( 0.172549, 0.172549, 0.627451, 1 )
 custom_fonts/font = SubResource( 10 )
 text = "RUNNERS"
 align = 1
 
 [node name="RunScore" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
-margin_top = 23.0
+margin_top = 215.0
 margin_right = 113.0
-margin_bottom = 89.0
+margin_bottom = 281.0
 custom_colors/font_color = Color( 1, 0.4, 0, 1 )
 custom_fonts/font = SubResource( 16 )
 text = "0"
 align = 1
 
 [node name="Run1" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+visible = false
 margin_top = 89.0
 margin_right = 113.0
 margin_bottom = 144.0
@@ -304,6 +314,21 @@ __meta__ = {
 }
 
 [node name="Run2" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+visible = false
+margin_top = 116.0
+margin_right = 113.0
+margin_bottom = 171.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Run3" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+visible = false
 margin_top = 144.0
 margin_right = 113.0
 margin_bottom = 199.0
@@ -316,7 +341,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Run3" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+[node name="Run4" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+visible = false
+margin_top = 171.0
+margin_right = 113.0
+margin_bottom = 226.0
+custom_colors/font_color = Color( 1, 0.4, 0, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Pat Interio
+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Run5" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
+visible = false
 margin_top = 199.0
 margin_right = 113.0
 margin_bottom = 254.0
@@ -329,36 +369,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Run4" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
-margin_top = 254.0
-margin_right = 113.0
-margin_bottom = 309.0
-custom_colors/font_color = Color( 1, 0.4, 0, 1 )
-custom_fonts/font = SubResource( 17 )
-text = "Pat Interio
-"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Run5" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
-margin_top = 309.0
-margin_right = 113.0
-margin_bottom = 364.0
-custom_colors/font_color = Color( 1, 0.4, 0, 1 )
-custom_fonts/font = SubResource( 17 )
-text = "Pat Interio
-"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Run6" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
-margin_top = 364.0
+visible = false
+margin_top = 226.0
 margin_right = 113.0
-margin_bottom = 419.0
+margin_bottom = 281.0
 custom_colors/font_color = Color( 1, 0.4, 0, 1 )
 custom_fonts/font = SubResource( 17 )
 text = "Pat Interio
@@ -369,9 +384,10 @@ __meta__ = {
 }
 
 [node name="Run7" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
-margin_top = 419.0
+visible = false
+margin_top = 254.0
 margin_right = 113.0
-margin_bottom = 474.0
+margin_bottom = 309.0
 custom_colors/font_color = Color( 1, 0.4, 0, 1 )
 custom_fonts/font = SubResource( 17 )
 text = "Pat Interio
