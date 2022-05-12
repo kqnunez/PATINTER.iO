@@ -16,6 +16,7 @@ var gameOverFlag = 0
 func _ready():
 	
 	NetworkScript.connect("show_game_over", self, "showGameOverScreen")
+	get_tree().connect("network_peer_disconnected", self,"_player_disconnected")
 	
 	var dt = OS.get_datetime()
 	self.date = [dt["month"], dt["day"], dt["year"]]
@@ -44,6 +45,10 @@ func _ready():
 
 func _process(delta):
 	pass
+	
+func _player_disconnected(id):
+	$Players.remove_child(self.get_node("Players/" + str(id)))
+	
 
 func _on_Area2D_body_entered(body):
 	if body.playerRole == 4:
