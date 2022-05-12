@@ -67,9 +67,12 @@ func refresh_list(playerlist):
 			$playerListLeft.add_item(player_info[0] + String(role))
 		#$centerMenu/menuButtons/roleSelect/inputControls/roleSelectInput.set_text(role)
 	
+	if get_tree().is_network_server():
+		NetworkScript.begin_peer_player_update(NetworkScript.players)
 	$centerMenu/menuButtons/startGameButton.disabled = not get_tree().is_network_server()
 
 func _on_back_pressed():
+	NetworkScript.request_disconnect()
 	get_tree().change_scene("res://Create_Join_Game.tscn")
 	
 func _on_startGameButton_pressed():
