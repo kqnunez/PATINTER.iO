@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/styles_and_fonts/montserratmed.tres" type="DynamicFont" id=1]
+
+[node name="PlayerLabel" type="Label"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1445.0
+margin_bottom = -807.0
+custom_colors/font_color = Color( 0.843137, 0.380392, 0.0431373, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Placeholder"
+__meta__ = {
+"_edit_use_anchors_": false
+}

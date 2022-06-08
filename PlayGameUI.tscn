@@ -301,9 +301,9 @@ align = 1
 
 [node name="Run1" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
 visible = false
-margin_top = 89.0
+margin_top = 254.0
 margin_right = 113.0
-margin_bottom = 144.0
+margin_bottom = 309.0
 custom_colors/font_color = Color( 1, 0.4, 0, 1 )
 custom_fonts/font = SubResource( 17 )
 text = "Pat Interio
@@ -315,9 +315,9 @@ __meta__ = {
 
 [node name="Run2" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
 visible = false
-margin_top = 116.0
+margin_top = 254.0
 margin_right = 113.0
-margin_bottom = 171.0
+margin_bottom = 309.0
 custom_colors/font_color = Color( 1, 0.4, 0, 1 )
 custom_fonts/font = SubResource( 17 )
 text = "Pat Interio
@@ -329,9 +329,9 @@ __meta__ = {
 
 [node name="Run3" type="Label" parent="GameDock/PlayerList/Runners/RunList"]
 visible = false
-margin_top = 144.0
+margin_top = 281.0
 margin_right = 113.0
-margin_bottom = 199.0
+margin_bottom = 336.0
 custom_colors/font_color = Color( 1, 0.4, 0, 1 )
 custom_fonts/font = SubResource( 17 )
 text = "Pat Interio
