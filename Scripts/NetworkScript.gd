@@ -229,6 +229,20 @@ remote func prep_game(spawns, host_players, layout):
 		print(spawned_player.playerRole)
 		spawned_player.set_network_master(player_ID)
 		game.get_node("Players").add_child(spawned_player)
+		
+		
+		var player_label_instance = load("res://PlayerLabel.tscn")
+		var player_name_label = player_label_instance.instance()
+		player_name_label.set_name(str(players[player_ID][0])) #PLAYER NAME LABEL SAME NAME AS PLAYER INSTANCE.
+		player_name_label.text = str(players[player_ID][0])
+		
+		var role_counter = 0
+		if player_role == 0:
+			game.get_node("GameDock/PlayerList/Runners/RunList/").add_child(player_name_label)
+		elif player_role == 1:
+			game.get_node("GameDock/PlayerList/Defenders/DefList/").add_child(player_name_label)
+		
+		
 	if not get_tree().is_network_server():
 		print("Peer reached get ready")
 		# Tell server we are ready to start.
